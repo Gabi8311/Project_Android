@@ -8,18 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import Entidades.Plato;
 import utilidades.Utilidades;
-
-public class MainActivity4 extends AppCompatActivity {
-    private ListView listViewPlatos;
-    private ArrayList<String>lista_informacion;
-    private ArrayList<Plato>lista_platos;
-    private ConexionSQLiteHelper conn;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,6 +38,9 @@ public class MainActivity4 extends AppCompatActivity {
     private TextView tv_2;
     private TextView tv_3;
     private Button btn_1;
+    private ListView listViewPlatos;
+    private ArrayList<String>lista_informacion;
+    private ArrayList<Plato>lista_platos;
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
     @Override
