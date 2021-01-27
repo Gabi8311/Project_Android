@@ -140,77 +140,59 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.iV_1_res:
             case R.id.tV_1_res:
-                goToActivity7(v);
-
+                consultar_carta("Sushita",v);
             case R.id.iV_2_res:
             case R.id.tV_2_res:
-                goToActivity7(v);
 
             case R.id.iV_3_res:
             case R.id.tV_3_res:
-                goToActivity7(v);
 
             case R.id.iV_4_res:
             case R.id.tV_4_res:
-                goToActivity7(v);
 
             case R.id.iV_5_res:
             case R.id.tV_5_res:
-                goToActivity7(v);
 
             case R.id.iV_6_res:
             case R.id.tV_6_res:
-                goToActivity7(v);
 
             case R.id.iV_7_res:
             case R.id.tV_7_res:
-                goToActivity7(v);
 
             case R.id.iV_8_res:
             case R.id.tV_8_res:
-                goToActivity7(v);
 
             case R.id.iV_9_res:
             case R.id.tV_9_res:
-                goToActivity7(v);
 
             case R.id.iV_10_res:
             case R.id.tV_10_res:
-                goToActivity7(v);
 
         }
     }
 ///////////Esto lo tengo que adaptar para que me traiga los platos
-    public void consultar() {
+    //Tengo que ponerle el compo nombre de restaurnte
+    public void consultar_carta(String parametro,View v) {
 
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {eT_user.getText().toString()};
-        String [] campos = {Utilidades.CAMPO_ID_PLATO,Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO};
-
+        String [] parametros = {parametro};
+        String [] campos = {Utilidades.CAMPO_ID_PLATO,Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO,Utilidades.CAMPO_NOMBRE_RESTAURANTE};
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_PLATO+"=?", parametros, null, null, null);
-
+            Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
             cursor.moveToFirst();
-            
-                Intent secondActivity = new Intent(MainActivity2.this, MainActivity2.class);
-                secondActivity.putExtra("nombre",cursor.getString(0));
-                startActivity(secondActivity);
+
+            Intent seventhActivity = new Intent(this, MainActivity7.class);
+            seventhActivity.putExtra("nombre",cursor.getString(0));
+            startActivity(seventhActivity);
 
             cursor.close();
             db.close();
 
-
         }catch(Exception e){
-
-            Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
     }
 
-    public void goToActivity7(View view) {
-        Intent seventhActivity = new Intent(this, MainActivity7.class);
-        startActivity(seventhActivity);
-
-    }
 }
