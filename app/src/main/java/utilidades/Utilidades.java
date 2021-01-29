@@ -21,7 +21,7 @@ public class Utilidades {
     public static final String CAMPO_DESCRIPCION_PLATO = "descripcion";
     public static final String CAMPO_PRECIO_PLATO = "precio";
     public static final String CAMPO_TIEMPO_PLATO = "tiempo";
-    public static final String CAMPO_NOMBRE_RESTAURANTE = "nombre_restaurante";
+    public static final String CAMPO_NOMBRE_RESTAURANTE = "tiempo";
 
     ///////////////////////////////////////////////
     public static final String CREAR_TABLA_USUARIO = "CREATE TABLE "+TABLA_USUARIO+" ("+CAMPO_ID+" INTEGER,"+CAMPO_NOMBRE+" TEXT,"+CAMPO_DIRECCION
