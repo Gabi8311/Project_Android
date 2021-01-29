@@ -121,46 +121,14 @@
                 android:backgroundTint="#871515"
                 android:text="Visualizar" />
         </TableRow>
-    </TableLayout>
+    </TableLayout><![CDATA[
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity4">
 
-    <ListView
-        android:id="@+id/listViewPlatos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/listViewPlatos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/icono" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="357dp"
-        android:layout_height="80dp"
-        android:text="A ver que ponemos"
-        android:textAlignment="center"
-        android:textColor="@color/color_red"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+
+
+    ]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,58 +42,6 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        listViewPlatos = findViewById(R.id.listViewPlatos);
-
-        conn = new ConexionSQLiteHelper(getApplicationContext(),"platos",null,1);
-        listViewPlatos = (ListView)findViewById(R.id.listViewPlatos);
-        consultar_lista_platos();
-
-        ArrayAdapter adaptador = new ArrayAdapter(this,R.layout.activity_main4,lista_informacion);
-
-        listViewPlatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String informacion = "ID - " + lista_platos.get(position).getId_plato();
-                informacion += "Nombre " + lista_platos.get(position).getNombre();
-                informacion += "Descripción " + lista_platos.get(position).getDescripcion();
-                informacion += "Precio " + lista_platos.get(position).getPrecio();
-                informacion += "Tiempo " + lista_platos.get(position).getTiempo();
-
-
-            }
-        });
-    }
-
-
- ////////////////////////////tV_comentarios6.setMovementMethod(new ScrollingMovementMethod());
-    private void consultar_lista_platos() {
-        SQLiteDatabase db = conn.getReadableDatabase();
-
-        Plato plato = null;
-        lista_platos = new ArrayList<Plato>();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_PLATO,null);
-
-        while(cursor.moveToNext()){
-            Plato p = new Plato();
-            p.setId_plato(cursor.getInt(0));
-            p.setNombre(cursor.getString(1));
-            p.setDescripcion(cursor.getString(2));
-            p.setPrecio(cursor.getDouble(3));
-            p.setTiempo(cursor.getInt(4));
-
-            lista_platos.add(p);
-        }
-        obtener_lista();
-    }
-
-    private void obtener_lista() {
-        lista_informacion = new ArrayList<String>();
-
-        for (int i = 0;i < lista_platos.size();i++){
-            lista_informacion.add(lista_platos.get(i).getNombre()+"-"+lista_platos.get(i).getDescripcion()+"-"
-                    +lista_platos.get(i).getPrecio());
-        }
         ed_nombre = findViewById(R.id.ed_nombre);
         ed_password = findViewById(R.id.ed_password);
         tv_1 = findViewById(R.id.tv_1);
