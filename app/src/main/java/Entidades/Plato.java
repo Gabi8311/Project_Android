@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Plato {
+import java.io.Serializable;
+
+public class Plato implements Serializable {
 
     private int id_plato;
     private String nombre;
@@ -9,7 +11,7 @@ public class Plato {
     private int tiempo;
     private String nombre_restaurante;
 
-    public Plato() {
+    public Plato () {
 
     }
 

@@ -13,14 +13,16 @@ import Entidades.Plato;
 import utilidades.Utilidades;
 import android.widget.Toast;
 
-public class MainActivity7 extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class MainActivity7 extends AppCompatActivity{
 
     private ListView listV_pedido;
     private ArrayList<String> lista_informacion;
     private ArrayList<Plato> lista_platos;
     private ArrayList<Plato> platos_seleccionados;
+    private String nombre;
+    private ArrayList<Plato>platos_restaurante;
 
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "platos", null, 1);
+    ConexionSQLiteHelper conn ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +34,37 @@ public class MainActivity7 extends AppCompatActivity implements AdapterView.OnIt
         conn = new ConexionSQLiteHelper(getApplicationContext(), "platos", null, 1);
         listV_pedido = (ListView) findViewById(R.id.listViewPlatos);
 
-        consultar_lista_platos();
+        //consultar_lista_platos();
 
-        ArrayAdapter adaptador = new ArrayAdapter(this, R.layout.activity_main7, lista_informacion);
         platos_seleccionados = new ArrayList<>();
+
+        Bundle extras = getIntent().getExtras();
+        ArrayList<String>platos_rest = null;
+        if (extras != null) {
+            System.out.println(extras.toString()+"extrassssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+            platos_restaurante = (ArrayList<Plato>) extras.get("carta");
+            platos_rest = new ArrayList<>();
+            for(Plato plato: platos_restaurante){
+                System.out.println(plato+"lo que viene del bundleeeeeeeeeeeeeeeeeeeeee");
+                platos_rest.add(plato.toString());
+            }
+        }
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,platos_rest );
+        listV_pedido.setAdapter(adaptador);
 
         listV_pedido.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                platos_seleccionados.add(lista_platos.get(position));
+                platos_restaurante.add(lista_platos.get(position));
 
                 String informacion = "ID - " + lista_platos.get(position).getId_plato();
                 informacion += "Nombre " + lista_platos.get(position).getNombre();
                 informacion += "Descripción " + lista_platos.get(position).getDescripcion();
                 informacion += "Precio " + lista_platos.get(position).getPrecio();
                 informacion += "Tiempo " + lista_platos.get(position).getTiempo();
-
+                informacion += "Nombre del Restaurante" + lista_platos.get(position).getNombre_restaurante();
                 Toast.makeText(getApplicationContext(), informacion, Toast.LENGTH_SHORT).show();
 
             }
@@ -86,8 +101,4 @@ public class MainActivity7 extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ///////////////////Rellenar
-    }
 }

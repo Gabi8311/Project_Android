@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import Entidades.Plato;
 import utilidades.Utilidades;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
@@ -140,7 +141,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.iV_1_res:
             case R.id.tV_1_res:
+                System.out.println("holaaa");
                 consultar_carta("Sushita",v);
+
             case R.id.iV_2_res:
             case R.id.tV_2_res:
 
@@ -177,15 +180,28 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         SQLiteDatabase db = conn.getReadableDatabase();
         String [] parametros = {parametro};
         String [] campos = {Utilidades.CAMPO_ID_PLATO,Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO,Utilidades.CAMPO_NOMBRE_RESTAURANTE};
-
+        ArrayList<Plato>platos_restaurante = new ArrayList<>();
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
-            cursor.moveToFirst();
 
-            Intent seventhActivity = new Intent(this, MainActivity7.class);
-            seventhActivity.putExtra("nombre",cursor.getString(0));
-            startActivity(seventhActivity);
+            Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
+            while(cursor.moveToNext()) {
+                System.out.println(cursor.getString(1) + " debo ser el nombre del platoooooooooooooooooooooo");
+                if (cursor.getString(1).equalsIgnoreCase(parametro)) {
+                    Plato p = new Plato();
+                    p.setId_plato(cursor.getInt(0));
+                    p.setNombre(cursor.getString(1));
+                    p.setDescripcion(cursor.getString(2));
+                    p.setPrecio(cursor.getDouble(3));
+                    p.setTiempo(cursor.getInt(4));
+                    p.setNombre_restaurante(cursor.getString(5));
+
+                    platos_restaurante.add(p);
+                }
+            }
+                    Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
+                    seventhActivity.putExtra("carta", platos_restaurante);
+                    startActivity(seventhActivity);
 
             cursor.close();
             db.close();
