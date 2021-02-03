@@ -166,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
         if (db != null) {
             for (ArrayList<Plato> carta : all_dishes) {
                 for (Plato plato : carta) {
+
                     ContentValues valores = new ContentValues();
-                    valores.put(Utilidades.CAMPO_ID_PLATO, plato.getId_plato());
                     valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
                     valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
                     valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());

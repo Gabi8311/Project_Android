@@ -27,6 +27,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     private String nombre;
     private ImageView iV_1_res,iV_2_res,iV_3_res,iV_4_res,iV_5_res,iV_6_res,iV_7_res,iV_8_res,iV_9_res,iV_10_res;
     private TextView tV_1_res,tV_2_res,tV_3_res,tV_4_res,tV_5_res,tV_6_res,tV_7_res,tV_8_res,tV_9_res,tV_10_res;
+    ArrayList<Plato>platos_restaurante;
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"platos",null,1);
 
 
@@ -177,34 +178,45 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     //Tengo que ponerle el compo nombre de restaurnte
     public void consultar_carta(String parametro,View v) {
 
-        SQLiteDatabase db = conn.getReadableDatabase();
+       SQLiteDatabase db = conn.getReadableDatabase();
         String [] parametros = {parametro};
-        String [] campos = {Utilidades.CAMPO_ID_PLATO,Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO,Utilidades.CAMPO_NOMBRE_RESTAURANTE};
-        ArrayList<Plato>platos_restaurante = new ArrayList<>();
+        String [] campos = {Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO,Utilidades.CAMPO_NOMBRE_RESTAURANTE};
+        platos_restaurante = new ArrayList<>();
+
         try {
 
 
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
-            while(cursor.moveToNext()) {
-                System.out.println(cursor.getString(1) + " debo ser el nombre del platoooooooooooooooooooooo");
-                if (cursor.getString(1).equalsIgnoreCase(parametro)) {
+
+
+
+            for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+
+                System.out.println(cursor.getString(4) + " debo ser el nombre del platoooooooooooooooooooooo");
+
+                if (cursor.getString(4).equalsIgnoreCase(parametro)) {
+
                     Plato p = new Plato();
-                    p.setId_plato(cursor.getInt(0));
-                    p.setNombre(cursor.getString(1));
-                    p.setDescripcion(cursor.getString(2));
-                    p.setPrecio(cursor.getDouble(3));
-                    p.setTiempo(cursor.getInt(4));
-                    p.setNombre_restaurante(cursor.getString(5));
+
+                    p.setNombre(cursor.getString(0));
+                    p.setDescripcion(cursor.getString(1));
+                    p.setPrecio(cursor.getDouble(2));
+                    p.setTiempo(cursor.getInt(3));
+                    p.setNombre_restaurante(cursor.getString(4));
+
 
                     platos_restaurante.add(p);
+
                 }
+
             }
-                    Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
-                    seventhActivity.putExtra("carta", platos_restaurante);
-                    startActivity(seventhActivity);
 
             cursor.close();
             db.close();
+
+            Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
+            seventhActivity.putExtra("carta", platos_restaurante);
+            startActivity(seventhActivity);
 
         }catch(Exception e){
             e.printStackTrace();
