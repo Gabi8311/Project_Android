@@ -1,11 +1,10 @@
 package utilidades;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import Entidades.Plato;
 
-public class Utilidades implements Serializable {
+public class Utilidades {
     //Clase con las constantes de los nombres de las tablas y los campos
 
     public static final String TABLA_USUARIO="usuario";

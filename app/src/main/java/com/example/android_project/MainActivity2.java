@@ -82,15 +82,22 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
 
         cL_2 = findViewById(R.id.cL_2);
+
         cL_2.setBackgroundColor(Color.BLACK);
 
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
 
+
              nombre = (String) extras.get("nombre");
+
         }
+
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,6 +107,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
