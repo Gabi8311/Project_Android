@@ -22,12 +22,13 @@ import java.util.ArrayList;
 import Entidades.Plato;
 import utilidades.Utilidades;
 
-public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
     private ConstraintLayout cL_2;
     private String nombre;
-    private ImageView iV_1_res, iV_2_res, iV_3_res, iV_4_res, iV_5_res, iV_6_res, iV_7_res, iV_8_res, iV_9_res, iV_10_res;
-    private TextView tV_1_res, tV_2_res, tV_3_res, tV_4_res, tV_5_res, tV_6_res, tV_7_res, tV_8_res, tV_9_res, tV_10_res;
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "platos", null, 1);
+    private ImageView iV_1_res,iV_2_res,iV_3_res,iV_4_res,iV_5_res,iV_6_res,iV_7_res,iV_8_res,iV_9_res,iV_10_res;
+    private TextView tV_1_res,tV_2_res,tV_3_res,tV_4_res,tV_5_res,tV_6_res,tV_7_res,tV_8_res,tV_9_res,tV_10_res;
+    ArrayList<Plato>platos_restaurante;
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"platos",null,1);
 
 
     @Override
@@ -81,15 +82,22 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
 
         cL_2 = findViewById(R.id.cL_2);
+
         cL_2.setBackgroundColor(Color.BLACK);
 
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
 
-            nombre = (String) extras.get("nombre");
+
+             nombre = (String) extras.get("nombre");
+
         }
+
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,7 +111,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
+        switch(item.getItemId()){
 
             case R.id.consultar:
 
@@ -116,7 +124,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.modificar:
 
                 Intent fiveActivity = new Intent(MainActivity2.this, MainActivity5.class);
-                fiveActivity.putExtra("nombre", nombre);
+                fiveActivity.putExtra("nombre",nombre);
                 startActivity(fiveActivity);
 
                 return true;
@@ -138,10 +146,11 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+        switch (v.getId()){
             case R.id.iV_1_res:
             case R.id.tV_1_res:
-                mandar_restaurante("Sushita");
+                System.out.println("holaaa");
+                consultar_carta("Sushita",v);
 
             case R.id.iV_2_res:
             case R.id.tV_2_res:
@@ -172,11 +181,53 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         }
     }
+///////////Esto lo tengo que adaptar para que me traiga los platos
+    //Tengo que ponerle el compo nombre de restaurnte
+    public void consultar_carta(String parametro,View v) {
+
+       SQLiteDatabase db = conn.getReadableDatabase();
+        String [] parametros = {parametro};
+        String [] campos = {Utilidades.CAMPO_NOMBRE_PLATO,Utilidades.CAMPO_DESCRIPCION_PLATO,Utilidades.CAMPO_PRECIO_PLATO,Utilidades.CAMPO_TIEMPO_PLATO,Utilidades.CAMPO_NOMBRE_RESTAURANTE};
+        platos_restaurante = new ArrayList<>();
+
+        try {
 
 
-    public void mandar_restaurante(String restaurante) {
-        Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
-        seventhActivity.putExtra("restaurante", restaurante);
-        startActivity(seventhActivity);
+            Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
+
+
+
+            for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+
+                System.out.println(cursor.getString(4) + " debo ser el nombre del platoooooooooooooooooooooo");
+
+                if (cursor.getString(4).equalsIgnoreCase(parametro)) {
+
+                    Plato p = new Plato();
+
+                    p.setNombre(cursor.getString(0));
+                    p.setDescripcion(cursor.getString(1));
+                    p.setPrecio(cursor.getDouble(2));
+                    p.setTiempo(cursor.getInt(3));
+                    p.setNombre_restaurante(cursor.getString(4));
+
+
+                    platos_restaurante.add(p);
+
+                }
+
+            }
+
+            cursor.close();
+            db.close();
+
+            Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
+            seventhActivity.putExtra("carta", platos_restaurante);
+            startActivity(seventhActivity);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
+
 }

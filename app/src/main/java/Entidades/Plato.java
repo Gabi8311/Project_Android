@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class Plato implements Serializable {
 
-    private Integer id_plato;
+    private int id_plato;
     private String nombre;
     private String descripcion;
     private double precio;
-    private Integer tiempo;
+    private int tiempo;
     private String nombre_restaurante;
 
     public Plato () {
 
     }
 
-    public Plato(Integer id_plato, String nombre, String descripcion, double precio, Integer tiempo, String nombre_restaurante) {
+    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo,String nombre_restaurante) {
         this.id_plato = id_plato;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -24,11 +24,11 @@ public class Plato implements Serializable {
         this.nombre_restaurante = nombre_restaurante;
     }
 
-    public Integer getId_plato() {
+    public int getId_plato() {
         return id_plato;
     }
 
-    public void setId_plato(Integer id_plato) {
+    public void setId_plato(int id_plato) {
         this.id_plato = id_plato;
     }
 
@@ -56,11 +56,11 @@ public class Plato implements Serializable {
         this.precio = precio;
     }
 
-    public Integer getTiempo() {
+    public int getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(Integer tiempo) {
+    public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
 
@@ -74,7 +74,14 @@ public class Plato implements Serializable {
 
     @Override
     public String toString() {
-        return  "Id_plato --> " + this.id_plato + "- Nombre: " + this.nombre + "\n- Descripción: " + this.descripcion + "- Precio: " + this.precio + "- Tiempo: " + this.tiempo;
+        return "Plato{" +
+                "id_plato=" + id_plato +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", tiempo=" + tiempo +
+                ", nombre_restaurante='" + nombre_restaurante + '\'' +
+                '}';
     }
 
     ///Veremos si metemos akí el nombre del restaurante
