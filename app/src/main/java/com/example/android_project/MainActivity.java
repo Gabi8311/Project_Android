@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ArrayList>all_dishes = new ArrayList<>();
         all_dishes = Rellenar_carta.rellenar();
 
-        if (db != null) {
+
             for (ArrayList<Plato> carta : all_dishes) {
                 for (Plato plato : carta) {
                     ContentValues valores = new ContentValues();
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                     db.insert(Utilidades.TABLA_PLATO, null, valores);
                 }
             }
-        }
+
         db.close();
         platos_introducidos = true;
     }

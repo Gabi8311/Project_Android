@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class Plato implements Serializable {
 
-    private int id_plato;
+    private Integer id_plato;
     private String nombre;
     private String descripcion;
     private double precio;
-    private int tiempo;
+    private Integer tiempo;
     private String nombre_restaurante;
 
     public Plato () {
 
     }
 
-    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo,String nombre_restaurante) {
+    public Plato(Integer id_plato, String nombre, String descripcion, double precio, Integer tiempo, String nombre_restaurante) {
         this.id_plato = id_plato;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -24,11 +24,11 @@ public class Plato implements Serializable {
         this.nombre_restaurante = nombre_restaurante;
     }
 
-    public int getId_plato() {
+    public Integer getId_plato() {
         return id_plato;
     }
 
-    public void setId_plato(int id_plato) {
+    public void setId_plato(Integer id_plato) {
         this.id_plato = id_plato;
     }
 
@@ -56,11 +56,11 @@ public class Plato implements Serializable {
         this.precio = precio;
     }
 
-    public int getTiempo() {
+    public Integer getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(int tiempo) {
+    public void setTiempo(Integer tiempo) {
         this.tiempo = tiempo;
     }
 
@@ -74,12 +74,7 @@ public class Plato implements Serializable {
 
     @Override
     public String toString() {
-        return "Plato\n" +
-                "Id_plato --> " + this.id_plato +
-                "- Nombre: " + this.nombre +
-                "- Descripción: " + this.descripcion +
-                "- Precio: " + this.precio +
-                "- Tiempo: " + this.tiempo;
+        return  "Id_plato --> " + this.id_plato + "- Nombre: " + this.nombre + "\n- Descripción: " + this.descripcion + "- Precio: " + this.precio + "- Tiempo: " + this.tiempo;
     }
 
     ///Veremos si metemos akí el nombre del restaurante

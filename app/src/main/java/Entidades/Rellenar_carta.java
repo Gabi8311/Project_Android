@@ -79,7 +79,7 @@ public class Rellenar_carta {
         Plato p47 = new Plato(47, "Pizza crujiente de aguacate con huevo", "Con un suave toque a aguacate y huevo.Súper crujiente", 14, 7, "Sushita");
         Plato p48 = new Plato(48, "Lubina al vapor marinada", "Hecha por las mejores manos de nuestro restaurante", 12, 8, "Sushita");
         Plato p49 = new Plato(49, "Costillas de ternera al josper con salsa picante", "Nuestro nivel de picante es un poco alto.Para estómagos fuertes", 16, 9, "Sushita");
-        Plato p50 = new Plato(50, "Arroz frito con confit de pato", "Es una delicia juntando dos de nuestros platos estrella", 11, 8, "Sushita");
+        Plato p50 = new Plato(50, "Arroz frito con confit de pato", "Es una delicia,juntando dos de nuestros platos estrella", 11, 8, "Sushita");
 
         platos_Sushita = new ArrayList<>(Arrays.asList(p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
 
