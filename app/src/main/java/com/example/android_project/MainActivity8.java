@@ -2,6 +2,9 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,8 +23,9 @@ public class MainActivity8 extends AppCompatActivity {
     private LinearLayout linearLayout8;
     private ListView listV_pedido2;
     private TextView tv_8;
-    private ArrayList<Plato>platos_elegidos = new ArrayList<>();
-    private ArrayList<String>tu_pedido = new ArrayList<>();
+    private ArrayList<Plato> platos_elegidos = new ArrayList<>();
+    private ArrayList<String> tu_pedido = new ArrayList<>();
+    private String total_string;
     private double precio_total = 0;
 
     @Override
@@ -29,7 +33,7 @@ public class MainActivity8 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
 
-        listV_pedido2 = (ListView)findViewById(R.id.listV_pedido2);
+        listV_pedido2 = (ListView) findViewById(R.id.listV_pedido2);
         tv_8 = findViewById(R.id.tV_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
 
@@ -47,9 +51,9 @@ public class MainActivity8 extends AppCompatActivity {
             tu_pedido.add(plato.toString());
             precio_total += plato.getPrecio();
         }
-        String total_string = Double.toString(precio_total);
+        total_string = Double.toString(precio_total);
 
-        tv_8.setText("Total --> "+ total_string + "€");
+        tv_8.setText("Total --> " + total_string + "€");
 
         ArrayAdapter<String> adaptador2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tu_pedido);
 
@@ -59,9 +63,42 @@ public class MainActivity8 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-
+                lanzar_alertD(position, adaptador2,tv_8);
 
             }
         });
+    }
+
+    public void lanzar_alertD(int position, ArrayAdapter adaptador2,TextView tV_8) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+// Configura el titulo.
+        alertDialogBuilder.setTitle("Elegir acción");
+
+// Configura el mensaje.
+        alertDialogBuilder
+                .setMessage("Quieres eliminar este plato?")
+                .setCancelable(false)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        precio_total = 0;
+                        tu_pedido.remove(position);
+                        platos_elegidos.remove(position);
+                        adaptador2.notifyDataSetChanged();
+
+                        for (Plato plato : platos_elegidos) {
+                            precio_total += plato.getPrecio();
+                        }
+                        total_string = Double.toString(precio_total);
+                        tv_8.setText("Total --> " + total_string + "€");
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                }).create().show();
     }
 }
