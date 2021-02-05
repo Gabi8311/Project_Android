@@ -80,7 +80,6 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         tV_9_res.setOnClickListener(this);
         tV_10_res.setOnClickListener(this);
 
-
         cL_2 = findViewById(R.id.cL_2);
 
         cL_2.setBackgroundColor(Color.BLACK);
@@ -88,16 +87,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-
-
              nombre = (String) extras.get("nombre");
-
         }
 
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,7 +109,6 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.consultar:
 
                 Intent fourthActivity = new Intent(MainActivity2.this, MainActivity4.class);
-
                 startActivity(fourthActivity);
 
                 return true;
@@ -136,11 +128,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
                 return true;
 
-
             default:
 
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -149,21 +139,25 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.iV_1_res:
             case R.id.tV_1_res:
-                System.out.println("holaaa");
                 consultar_carta("Sushita",v);
+                break;
 
             case R.id.iV_2_res:
             case R.id.tV_2_res:
-
+                consultar_carta("Alfredo´s",v);
+                break;
             case R.id.iV_3_res:
             case R.id.tV_3_res:
-
+                consultar_carta("Babel",v);
+                break;
             case R.id.iV_4_res:
             case R.id.tV_4_res:
-
+                consultar_carta("Pulcinella",v);
+                break;
             case R.id.iV_5_res:
             case R.id.tV_5_res:
-
+                consultar_carta("O´recanto",v);
+                break;
             case R.id.iV_6_res:
             case R.id.tV_6_res:
 
@@ -192,14 +186,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         try {
 
-
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE+"=?", parametros, null, null, null);
 
-
-
             for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-
-                System.out.println(cursor.getString(4) + " debo ser el nombre del platoooooooooooooooooooooo");
 
                 if (cursor.getString(4).equalsIgnoreCase(parametro)) {
 
@@ -211,11 +200,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                     p.setTiempo(cursor.getInt(3));
                     p.setNombre_restaurante(cursor.getString(4));
 
-
                     platos_restaurante.add(p);
-
                 }
-
             }
 
             cursor.close();

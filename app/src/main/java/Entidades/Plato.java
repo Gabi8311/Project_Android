@@ -74,15 +74,7 @@ public class Plato implements Serializable {
 
     @Override
     public String toString() {
-        return "Plato{" +
-                "id_plato=" + id_plato +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                ", tiempo=" + tiempo +
-                ", nombre_restaurante='" + nombre_restaurante + '\'' +
-                '}';
+        return
+                "Nombre --> " + this.nombre +" -->  Precio" + this.precio + "\n" + this.descripcion;
     }
-
-    ///Veremos si metemos akí el nombre del restaurante
 }
