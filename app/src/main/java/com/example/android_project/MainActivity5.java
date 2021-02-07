@@ -21,7 +21,6 @@ public class MainActivity5 extends AppCompatActivity {
     private EditText ed_8;
     private EditText ed_9;
     private EditText ed_10;
-    private Button btn_1;
     private Button btn_2;
     private String nombre;
 
@@ -32,13 +31,12 @@ public class MainActivity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        ed_nombre = findViewById(R.id.ed_nombre);
-        ed_password = findViewById(R.id.ed_password);
+        ed_nombre = findViewById(R.id.ed_111);
+        ed_password = findViewById(R.id.ed_112);
         ed_password2 = findViewById(R.id.ed_password2);
         ed_8 = findViewById(R.id.ed_8);
         ed_9 = findViewById(R.id.ed_9);
         ed_10 = findViewById(R.id.ed_10);
-        btn_1 = findViewById(R.id.btn_1);
         btn_2 = findViewById(R.id.btn_2);
 
         Bundle extras = getIntent().getExtras();
@@ -56,8 +54,17 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                modificarUsuario();
+                if(ed_password.getText().toString().equals(ed_password2.getText().toString()) && ed_8.getText().toString().length() != 0 && ed_9.getText().toString().length() != 0
+                        && ed_10.getText().toString().length() != 0 && ed_password2.getText().toString().length() != 0
+                        ) {
 
+                    modificarUsuario();
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos y que su contraseña sea igual  ", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
@@ -82,11 +89,10 @@ public class MainActivity5 extends AppCompatActivity {
             cursor.moveToFirst();
 
 
-
             if(cursor.getString(0).equals(nombre))  {
 
                 ed_nombre.setText(cursor.getString(0));
-                ed_password.setText(cursor.getString(1));
+
                 ed_8.setText(cursor.getString(2));
                 ed_9.setText(cursor.getString(3));
                 ed_10.setText(cursor.getString(4));

@@ -2,10 +2,14 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import Entidades.Plato;
+import utilidades.Utilidades;
 
 public class MainActivity8 extends AppCompatActivity {
 
@@ -22,7 +27,10 @@ public class MainActivity8 extends AppCompatActivity {
     private TextView tv_8;
     private ArrayList<Plato>platos_elegidos = new ArrayList<>();
     private ArrayList<String>tu_pedido = new ArrayList<>();
+    private Button btn_confirmar;
     private double precio_total = 0;
+    private Integer tiempo_total = 0;
+    private String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +40,7 @@ public class MainActivity8 extends AppCompatActivity {
         listV_pedido2 = (ListView)findViewById(R.id.listV_pedido2);
         tv_8 = findViewById(R.id.tV_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
-
+        btn_confirmar = findViewById(R.id.btn_confirmar);
         linearLayout8.setBackgroundResource(R.drawable.comidas);
 
         Bundle extras = getIntent().getExtras();
@@ -40,13 +48,16 @@ public class MainActivity8 extends AppCompatActivity {
         if (extras != null) {
 
             platos_elegidos = (ArrayList<Plato>) extras.get("pedido");
+            nombre = (String) extras.get("nombre");
 
         }
 
         for (Plato plato : platos_elegidos) {
             tu_pedido.add(plato.toString());
             precio_total += plato.getPrecio();
+            tiempo_total += plato.getTiempo();
         }
+
         String total_string = Double.toString(precio_total);
 
         tv_8.setText("Total --> "+ total_string + "€");
@@ -63,5 +74,52 @@ public class MainActivity8 extends AppCompatActivity {
 
             }
         });
+
+        btn_confirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               if(platos_elegidos.size()<=0) {
+
+                   Toast.makeText(getApplicationContext(),"No hay platos introducidos", Toast.LENGTH_SHORT ).show();
+
+               }else{
+
+                   registrarPedido();
+               }
+
+            }
+        });
+
+    }
+
+    public void registrarPedido(){
+
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_pedidos",null,1);
+
+        ContentValues values = new ContentValues();
+
+        SQLiteDatabase db =conn.getWritableDatabase();
+
+        //se añaden 10 min por desplazamiento
+        tiempo_total += 10;
+
+                values.put(Utilidades.CAMPO_NOMBRE,nombre);
+                values.put(Utilidades.CAMPO_LISTA_PEDIDOS, tu_pedido.toString());
+                values.put(Utilidades.CAMPO_TIEMPO_TOTAL,tiempo_total);
+
+
+        Long idFinal =db.insert(Utilidades.TABLA_PEDIDOS,Utilidades.CAMPO_ID_PEDIDO,values);
+
+        Toast.makeText(getApplicationContext(),"id Registro: " + idFinal, Toast.LENGTH_SHORT ).show();
+        db.close();
+
+        Intent nineActivity = new Intent(MainActivity8.this, MainActivity9.class);
+
+        nineActivity.putExtra("nombre", nombre);
+        nineActivity.putExtra("tiempo", tiempo_total);
+
+        startActivity(nineActivity);
+
     }
 }

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:id="@+id/tr_8"
+            android:id="@+id/tr113"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,14 +33,14 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_1"
+            android:id="@+id/tr_111"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_nombre"
+                android:id="@+id/ed_111"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,14 +49,14 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_2"
+            android:id="@+id/tr112"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_password"
+                android:id="@+id/ed_112"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -65,7 +65,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_4"
+            android:id="@+id/tr114"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -79,7 +79,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_3"
+            android:id="@+id/tr_113"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -93,7 +93,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_6"
+            android:id="@+id/tr_116"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -107,7 +107,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_7"
+            android:id="@+id/tr_117"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
@@ -115,7 +115,7 @@
             android:minHeight="70dp">
 
             <Button
-                android:id="@+id/btn_1"
+                android:id="@+id/btn_111"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#871515"

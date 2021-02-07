@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,12 +16,7 @@ import java.util.ArrayList;
 import Entidades.Plato;
 import utilidades.Utilidades;
 
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import utilidades.Utilidades;
 
 public class MainActivity4 extends AppCompatActivity {
     private ListView listViewPlatos;
@@ -42,12 +35,12 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        ed_nombre = findViewById(R.id.ed_nombre);
-        ed_password = findViewById(R.id.ed_password);
+        ed_nombre = findViewById(R.id.ed_111);
+        ed_password = findViewById(R.id.ed_112);
         tv_1 = findViewById(R.id.tv_1);
         tv_2 = findViewById(R.id.tv_2);
         tv_3 = findViewById(R.id.tv_3);
-        btn_1 = findViewById(R.id.btn_1);
+        btn_1 = findViewById(R.id.btn_111);
 
 
         btn_1.setOnClickListener(new View.OnClickListener() {

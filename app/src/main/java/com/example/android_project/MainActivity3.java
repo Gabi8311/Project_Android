@@ -83,7 +83,18 @@ public class MainActivity3 extends AppCompatActivity {
 
             if(!verificar){
 
-                registrarUsuario();
+                if(ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() != 0
+                && ed_3.getText().toString().length() != 0 && ed_4.getText().toString().length() != 0
+                && ed_5.getText().toString().length() != 0) {
+
+                    registrarUsuario();
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(),"Debe rellenar los campos", Toast.LENGTH_SHORT ).show();
+
+                }
+
             }
 
 

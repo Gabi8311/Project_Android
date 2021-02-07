@@ -8,6 +8,9 @@
         android:id="@+id/modificar"
         android:title="Modificar datos usuario" />
     <item
+        android:id="@+id/pedidos"
+        android:title="Consultar pedidos" />
+    <item
         android:id="@+id/salir"
         android:title="Salir" />
 </menu>

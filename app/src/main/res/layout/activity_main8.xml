@@ -13,7 +13,7 @@
     <ListView
         android:id="@+id/listV_pedido2"
         android:layout_width="340dp"
-        android:layout_height="616dp"
+        android:layout_height="520dp"
         android:background="@color/purple_200"
         android:fadingEdge="none" />
 
@@ -27,5 +27,11 @@
         android:textColor="@color/purple_500"
         android:textSize="30dp"
         android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/btn_confirmar"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_confirmar" />
 
 </LinearLayout>

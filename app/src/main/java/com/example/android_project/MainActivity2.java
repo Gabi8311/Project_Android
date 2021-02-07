@@ -128,6 +128,14 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
                 return true;
 
+            case R.id.pedidos:
+
+                Intent tenActivity = new Intent(MainActivity2.this, MainActivity10.class);
+                tenActivity.putExtra("nombre",nombre);
+                startActivity(tenActivity);
+
+                return true;
+
             default:
 
                 return super.onOptionsItemSelected(item);
@@ -209,6 +217,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
             Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
             seventhActivity.putExtra("carta", platos_restaurante);
+            seventhActivity.putExtra("nombre",nombre);
             startActivity(seventhActivity);
 
         }catch(Exception e){

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:id="@+id/tr_8"
+            android:id="@+id/tr113"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -35,14 +35,14 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_1"
+            android:id="@+id/tr_111"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_nombre"
+                android:id="@+id/ed_111"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -51,23 +51,23 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_2"
+            android:id="@+id/tr112"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_password"
+                android:id="@+id/ed_112"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="Nueva contraseña"
                 android:inputType="textPassword" />
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_4"
+            android:id="@+id/tr114"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -78,12 +78,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nueva contraseña"
+                android:hint="Verifique su contraseña"
                 android:inputType="textPassword" />
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_6"
+            android:id="@+id/tr_116"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -128,7 +128,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_7"
+            android:id="@+id/tr_117"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
@@ -138,7 +138,7 @@
 
             <Button
                 android:id="@+id/btn_2"
-                android:layout_width="0dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Modificar" />
 

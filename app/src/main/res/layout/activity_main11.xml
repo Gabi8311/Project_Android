@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#130B0B"
-    tools:context=".MainActivity3">
+    tools:context=".MainActivity11">
 
     <TableLayout
-        android:id="@+id/tl1"
-        android:layout_width="341dp"
-        android:layout_height="599dp"
-        android:background="#EAEEF1"
-        android:gravity="center"
+        android:id="@+id/tl4"
+        android:layout_width="346dp"
+        android:layout_height="565dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +38,7 @@
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_1"
+                android:id="@+id/ed_111"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -56,28 +54,12 @@
             android:minHeight="70dp">
 
             <EditText
-                android:id="@+id/ed_2"
+                android:id="@+id/ed_112"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:hint="Contraseña"/>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tr_113"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:minHeight="70dp">
-
-            <EditText
-                android:id="@+id/ed_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Direccion"
-                android:inputType="textPersonName" />
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow
@@ -87,46 +69,27 @@
             android:gravity="center"
             android:minHeight="70dp">
 
-            <EditText
-                android:id="@+id/ed_4"
+            <TextView
+                android:id="@+id/tv_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
-                android:hint="Telefono"/>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tr_5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:minHeight="70dp">
-
-            <EditText
-                android:id="@+id/ed_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Email"/>
-            />
+                android:layout_height="46dp"
+                android:gravity="center" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tr_117"
-            android:layout_width="198dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
             android:gravity="center"
             android:minHeight="70dp">
 
             <Button
-                android:id="@+id/btn_registrar"
-                android:layout_width="126dp"
-                android:layout_height="52dp"
+                android:id="@+id/btn_111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:backgroundTint="#871515"
-                android:text="@string/btn_registro" />
+                android:text="Visualizar" />
         </TableRow>
     </TableLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
