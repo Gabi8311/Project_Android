@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tV_password;
     private EditText eT_user;
     private EditText eT_password;
-    private TextView tV_error;
     private Button btn_enter;
     private TextView tV_registrate;
 
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         tV_password = findViewById(R.id.tV_password);
         eT_user = findViewById(R.id.eT_user);
         eT_password = findViewById(R.id.eT_password);
-        tV_error = findViewById(R.id.tV_error);
         tV_registrate = findViewById(R.id.tV_registrate);
 
         cL_1.setBackgroundColor(Color.BLACK);
@@ -70,30 +68,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent thirdActivity = new Intent(MainActivity.this, MainActivity3.class);
-
                 startActivity(thirdActivity);
-
-
             }
         });
-
 
         btn_enter.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
 
-                consultar();
+                consultar_usuario();
             }
         });
 
-
-        //Vacia el campo del User editText
         vaciar_campo(eT_user);
 
-        //Vacia el campo del password editText
         vaciar_campo(eT_password);
-        tV_error.setText("");
 
         //Limpia el foco cuando haces click en el constraint Layout
         cL_1.setOnClickListener(new View.OnClickListener() {
@@ -105,40 +95,39 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    public void consultar() {
+    public void consultar_usuario() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String [] parametros = {eT_user.getText().toString()};
         String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD};
 
-
         try {
 
             Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
-
             cursor.moveToFirst();
 
+            if(cursor.getString(0).equals(eT_user.getText().toString())) {
 
+                if(cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString()))  {
 
-            if(cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString()))  {
+                    Toast.makeText(getApplicationContext(), "Bienvenido ", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(), "Bienvenido ", Toast.LENGTH_SHORT).show();
+                    Intent secondActivity = new Intent(MainActivity.this, MainActivity2.class);
+                    secondActivity.putExtra("nombre",cursor.getString(0));
+                    startActivity(secondActivity);
 
-                Intent secondActivity = new Intent(MainActivity.this, MainActivity2.class);
-                secondActivity.putExtra("nombre",cursor.getString(0));
-                startActivity(secondActivity);
+                }else{
 
+                    Toast.makeText(getApplicationContext(), "Password incorrecto", Toast.LENGTH_SHORT).show();
+                }
             }
-
 
             cursor.close();
             db.close();
 
-
         }catch(Exception e){
 
-            Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Usuario incorrecto", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -147,10 +136,9 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("ResourceType")
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+
                 if (hasFocus) {
                     campo.getText().clear();
-                    campo.setTextColor(Color.parseColor(getString(R.color.white)));
-                    tV_error.setText("");
                 }
             }
         });
@@ -162,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<ArrayList>all_dishes = new ArrayList<>();
         all_dishes = Rellenar_carta.rellenar();
-
 
             for (ArrayList<Plato> carta : all_dishes) {
                 for (Plato plato : carta) {

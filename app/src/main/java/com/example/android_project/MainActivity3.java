@@ -34,54 +34,51 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        ed_1=findViewById(R.id.ed_1);
-        ed_2=findViewById(R.id.ed_2);
-        ed_3=findViewById(R.id.ed_3);
-        ed_4=findViewById(R.id.ed_4);
-        ed_5=findViewById(R.id.ed_5);
-        btn_registrar=findViewById(R.id.btn_registrar);
+        ed_1 = findViewById(R.id.ed_1);
+        ed_2 = findViewById(R.id.ed_2);
+        ed_3 = findViewById(R.id.ed_3);
+        ed_4 = findViewById(R.id.ed_4);
+        ed_5 = findViewById(R.id.ed_5);
+        btn_registrar = findViewById(R.id.btn_registrar);
 
-    btn_registrar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        btn_registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            comprobarUsuario();
+                comprobarUsuario();
 
-        }
-    });
-
+            }
+        });
     }
+
     private void comprobarUsuario() {
 
-        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
         ContentValues values = new ContentValues();
 
-        Boolean verificar=false;
+        Boolean verificar = false;
 
         SQLiteDatabase dbRead = conn.getReadableDatabase();//El nombre de usuario es único,no se repite,leo las tablas para saber si esta.
-        String [] parametros = {ed_1.getText().toString()};
-        String [] campos = {Utilidades.CAMPO_NOMBRE};
+        String[] parametros = {ed_1.getText().toString()};
+        String[] campos = {Utilidades.CAMPO_NOMBRE};
 
-            Cursor cursor = dbRead.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
+        Cursor cursor = dbRead.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
 
-            if(cursor.moveToFirst() && cursor!=null) {
+        if (cursor.moveToFirst() && cursor != null) {
 
-                if (cursor.getString(0).equals(ed_1.getText().toString())) {
+            if (cursor.getString(0).equals(ed_1.getText().toString())) {
 
-                    Toast.makeText(getApplicationContext(), "Nombre de usuario ya registrado ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Nombre de usuario ya registrado ", Toast.LENGTH_SHORT).show();
 
-                    verificar = true;
-                }
-
+                verificar = true;
             }
+        }
 
-            cursor.close();
-            dbRead.close();
+        cursor.close();
+        dbRead.close();
 
-
-
-            if(!verificar){
+        if (!verificar) {
 
                 if(ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() != 0
                 && ed_3.getText().toString().length() != 0 && ed_4.getText().toString().length() != 0
@@ -89,6 +86,8 @@ public class MainActivity3 extends AppCompatActivity {
 
                     registrarUsuario();
 
+                    Intent firstActivity = new Intent(MainActivity3.this, MainActivity.class);
+                    startActivity(firstActivity);
                 }else{
 
                     Toast.makeText(getApplicationContext(),"Debe rellenar los campos", Toast.LENGTH_SHORT ).show();
@@ -100,32 +99,32 @@ public class MainActivity3 extends AppCompatActivity {
 
 
 
+        }
 
 
-    }
+    public void registrarUsuario() {
 
-    public void registrarUsuario(){
-
-        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
         ContentValues values = new ContentValues();
 
-            SQLiteDatabase db =conn.getWritableDatabase();
+        SQLiteDatabase db = conn.getWritableDatabase();
 
-            values.put(Utilidades.CAMPO_NOMBRE, ed_1.getText().toString());
-            values.put(Utilidades.CAMPO_PASSWORD,ed_2.getText().toString());
-            values.put(Utilidades.CAMPO_DIRECCION,ed_3.getText().toString());
-            values.put(Utilidades.CAMPO_TELEFONO,ed_4.getText().toString());
-            values.put(Utilidades.CAMPO_EMAIL,ed_5.getText().toString());
+        values.put(Utilidades.CAMPO_NOMBRE, ed_1.getText().toString());
+        values.put(Utilidades.CAMPO_PASSWORD, ed_2.getText().toString());
+        values.put(Utilidades.CAMPO_DIRECCION, ed_3.getText().toString());
+        values.put(Utilidades.CAMPO_TELEFONO, ed_4.getText().toString());
+        values.put(Utilidades.CAMPO_EMAIL, ed_5.getText().toString());
 
-        Long idFinal =db.insert(Utilidades.TABLA_USUARIO,Utilidades.CAMPO_ID,values);
+        Long idFinal = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID, values);
 
-        Toast.makeText(getApplicationContext(),"id Registro: " + idFinal, Toast.LENGTH_SHORT ).show();
+        Toast.makeText(getApplicationContext(), "id Registro: " + idFinal, Toast.LENGTH_SHORT).show();
         db.close();
 
 
 
     }
+
     public void vaciar_campo(EditText campo) {
         campo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @SuppressLint("ResourceType")

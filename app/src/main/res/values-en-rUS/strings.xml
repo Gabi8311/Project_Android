@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android_Project</string>
+    <string name="introduce_usuario">Enter your Username</string>
+    <string name="introduce_password">Enter your Password</string>
+    <string name="usuario">User</string>
+    <string name="password">Password</string>
+    <string name="btn_enter">Enter</string>
+    <string name="usuario_incorrecto">** Incorrect User **</string>
+    <string name="password_incorrecto">** Incorrect Password **</string>
+    <string name="btn_mostrar">Show</string>
+    <string name="campo_obligatorio">** Compulsory Field **</string>
+    <string name="btn_salir">To come out</string>
+    <string name="btn_volver">Back</string>
+    <string name="elige_restaurante">Choose your VIP Restaurant</string>
+    <string name="texto_registrarse">Are you not registered?</string>
+    <string name="registrate">Register</string>
+    <string name="btn_registro">Accept</string>
+
+</resources>

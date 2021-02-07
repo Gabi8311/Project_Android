@@ -5,13 +5,13 @@
     android:id="@+id/cL_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="10dp"
     tools:context=".MainActivity2">
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,39 +19,74 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="8">
+
+            <ImageView
+                android:id="@+id/iV_Logo_2"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="3"
+                app:srcCompat="@drawable/icono" />
+
+            <TextView
+                android:id="@+id/tV_frase_res"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="5"
+                android:text="@string/elige_restaurante"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textStyle="bold|italic" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <ImageView
                 android:id="@+id/iV_1_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
                 app:srcCompat="@drawable/sushita3" />
 
             <ImageView
                 android:id="@+id/iV_2_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="4"
                 app:srcCompat="@drawable/rincon_gourmet" />
 
             <ImageView
                 android:id="@+id/iV_3_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
                 app:srcCompat="@drawable/asador" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <TextView
                 android:id="@+id/tV_1_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
                 android:text="Sushita"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -60,9 +95,10 @@
 
             <TextView
                 android:id="@+id/tV_2_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingBottom="10dp"
                 android:text="Diverxo"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -71,9 +107,11 @@
 
             <TextView
                 android:id="@+id/tV_3_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:text="El Asador"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -83,39 +121,45 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <ImageView
                 android:id="@+id/iV_4_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
                 app:srcCompat="@drawable/alfredos" />
 
             <ImageView
                 android:id="@+id/iV_5_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
                 app:srcCompat="@drawable/rinco_frito" />
 
             <ImageView
                 android:id="@+id/iV_6_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
                 app:srcCompat="@drawable/pulcinella" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <TextView
                 android:id="@+id/tV_4_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
                 android:text="Alfredo´s"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -124,9 +168,10 @@
 
             <TextView
                 android:id="@+id/tV_5_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingBottom="10dp"
                 android:text="Le Petit"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -135,9 +180,11 @@
 
             <TextView
                 android:id="@+id/tV_6_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:text="Pulcinella"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -147,39 +194,45 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <ImageView
                 android:id="@+id/iV_7_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
                 app:srcCompat="@drawable/orecanto" />
 
             <ImageView
                 android:id="@+id/iV_8_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
                 app:srcCompat="@drawable/babel" />
 
             <ImageView
                 android:id="@+id/iV_9_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
                 app:srcCompat="@drawable/cantina_tio_paco" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="12">
 
             <TextView
                 android:id="@+id/tV_7_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
                 android:text="O´recanto"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -188,9 +241,10 @@
 
             <TextView
                 android:id="@+id/tV_8_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingBottom="10dp"
                 android:text="Babel"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -199,9 +253,11 @@
 
             <TextView
                 android:id="@+id/tV_9_res"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:text="Di Francesco"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
@@ -212,59 +268,57 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:weightSum="12">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
 
             <ImageView
                 android:id="@+id/iV_10_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
+                android:layout_weight="4"
                 app:srcCompat="@drawable/trattoria" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:weightSum="12">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
 
             <TextView
                 android:id="@+id/tV_10_res"
-                android:layout_width="115dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="4"
                 android:text="Trattoria"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
                 android:textSize="20dp"
                 android:textStyle="bold|italic" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
+
         </TableRow>
 
     </TableLayout>
-
-    <TextView
-        android:id="@+id/tV_frase_res"
-        android:layout_width="237dp"
-        android:layout_height="94dp"
-        android:text="@string/elige_restaurante"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
-
-    <ImageView
-        android:id="@+id/iV_Logo_2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/icono" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
