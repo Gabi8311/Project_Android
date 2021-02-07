@@ -63,13 +63,13 @@ public class MainActivity8 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                lanzar_alertD(position, adaptador2,tv_8);
+                lanzar_alertD(position, adaptador2, tv_8);
 
             }
         });
     }
 
-    public void lanzar_alertD(int position, ArrayAdapter adaptador2,TextView tV_8) {
+    public void lanzar_alertD(int position, ArrayAdapter adaptador2, TextView tV_8) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
 // Configura el titulo.

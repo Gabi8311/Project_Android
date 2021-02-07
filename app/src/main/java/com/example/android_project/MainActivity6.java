@@ -20,7 +20,7 @@ public class MainActivity6 extends AppCompatActivity {
     private ListView listViewPlatos;
     private ArrayList<String>lista_informacion;
     private ArrayList<Plato>lista_platos;
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(getApplicationContext(),"platos",null,1);
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(getApplicationContext(),"platos",null,1);//Otro??
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +76,5 @@ public class MainActivity6 extends AppCompatActivity {
             lista_informacion.add(lista_platos.get(i).getNombre()+"-"+lista_platos.get(i).getDescripcion()+"-"
                     +lista_platos.get(i).getPrecio());
         }
-
-
     }
 }
