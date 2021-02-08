@@ -1,6 +1,7 @@
 package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -19,13 +20,13 @@ import utilidades.Utilidades;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    TextView ed_1;
-    TextView ed_2;
-    TextView ed_3;
-    TextView ed_4;
-    TextView ed_5;
-    Button btn_registrar;
-
+   private EditText ed_1;
+    private EditText  ed_2;
+    private EditText  ed_3;
+    private EditText  ed_4;
+    private EditText  ed_5;
+    private Button btn_registrar;
+    private ConstraintLayout cl3;
 
 
 
@@ -34,6 +35,7 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
+        cl3 = findViewById(R.id.cl3);
         ed_1 = findViewById(R.id.ed_1);
         ed_2 = findViewById(R.id.ed_2);
         ed_3 = findViewById(R.id.ed_3);
@@ -47,6 +49,26 @@ public class MainActivity3 extends AppCompatActivity {
 
                 comprobarUsuario();
 
+            }
+        });
+
+
+        vaciar_campo(ed_1);
+
+        vaciar_campo(ed_2);
+        vaciar_campo(ed_3);
+        vaciar_campo(ed_4);
+        vaciar_campo(ed_5);
+
+        //Limpia el foco cuando haces click en el constraint Layout
+        cl3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed_1.clearFocus();
+                ed_2.clearFocus();
+                ed_3.clearFocus();
+                ed_4.clearFocus();
+                ed_5.clearFocus();
             }
         });
     }

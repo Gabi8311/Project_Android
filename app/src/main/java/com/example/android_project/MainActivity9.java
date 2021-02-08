@@ -44,7 +44,7 @@ public class MainActivity9 extends AppCompatActivity {
 
         }
 
-        System.out.println(tiempo);
+
         tv91.setText(nombre);
         tv92.setText("Su pedido llegará a su destino en: " );
         tv93.setText(String.valueOf(tiempo));

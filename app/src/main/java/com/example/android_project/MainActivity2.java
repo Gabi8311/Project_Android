@@ -136,6 +136,14 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
                 return true;
 
+            case R.id.borrar:
+
+                Intent elevenActivity = new Intent(MainActivity2.this, MainActivity11.class);
+                elevenActivity.putExtra("nombre",nombre);
+                startActivity(elevenActivity);
+
+                return true;
+
             default:
 
                 return super.onOptionsItemSelected(item);

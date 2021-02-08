@@ -1,27 +1,24 @@
 package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import Entidades.Plato;
 import utilidades.Utilidades;
 
 import android.widget.Toast;
 
 public class MainActivity4 extends AppCompatActivity {
-    private ListView listViewPlatos;
-    private ArrayList<String>lista_informacion;
-    private ArrayList<Plato>lista_platos;
+
+    private ConstraintLayout cl_4;
     private EditText ed_nombre;
     private EditText ed_password;
     private TextView tv_1;
@@ -35,8 +32,9 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        ed_nombre = findViewById(R.id.ed_111);
-        ed_password = findViewById(R.id.ed_112);
+        cl_4 = findViewById(R.id.cl_5);
+        ed_nombre = findViewById(R.id.ed_nombre);
+        ed_password = findViewById(R.id.ed_password);
         tv_1 = findViewById(R.id.tv_1);
         tv_2 = findViewById(R.id.tv_2);
         tv_3 = findViewById(R.id.tv_3);
@@ -52,6 +50,19 @@ public class MainActivity4 extends AppCompatActivity {
             }
         });
 
+
+        vaciar_campo(ed_nombre);
+
+        vaciar_campo(ed_password);
+
+        //Limpia el foco cuando haces click en el constraint Layout
+        cl_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed_nombre.clearFocus();
+                ed_password.clearFocus();
+            }
+        });
 
     }
 
@@ -90,5 +101,18 @@ public class MainActivity4 extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void vaciar_campo(EditText campo) {
+        campo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    campo.getText().clear();
+                }
+            }
+        });
     }
 }

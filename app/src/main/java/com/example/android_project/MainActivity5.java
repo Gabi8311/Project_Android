@@ -1,10 +1,13 @@
 package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +18,7 @@ import utilidades.Utilidades;
 
 public class MainActivity5 extends AppCompatActivity {
 
+    private ConstraintLayout cl_5;
     private EditText ed_nombre;
     private EditText ed_password;
     private EditText ed_password2;
@@ -31,8 +35,9 @@ public class MainActivity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        ed_nombre = findViewById(R.id.ed_111);
-        ed_password = findViewById(R.id.ed_112);
+        cl_5 = findViewById(R.id.cl_5);
+        ed_nombre = findViewById(R.id.ed_nombre);
+        ed_password = findViewById(R.id.ed_password);
         ed_password2 = findViewById(R.id.ed_password2);
         ed_8 = findViewById(R.id.ed_8);
         ed_9 = findViewById(R.id.ed_9);
@@ -68,7 +73,22 @@ public class MainActivity5 extends AppCompatActivity {
             }
         });
 
+        vaciar_campo(ed_nombre);
 
+        vaciar_campo(ed_password);
+        vaciar_campo(ed_password2);
+
+
+        //Limpia el foco cuando haces click en el constraint Layout
+        cl_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed_nombre.clearFocus();
+                ed_password.clearFocus();
+                ed_password2.clearFocus();
+
+            }
+        });
 
 
     }
@@ -130,5 +150,20 @@ public class MainActivity5 extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Base de datos actualizada ", Toast.LENGTH_SHORT).show();
 }
+
+    public void vaciar_campo(EditText campo) {
+        campo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+
+                    campo.getText().clear();
+                    campo.setTextColor(Color.parseColor(getString(R.color.white)));
+                }
+            }
+        });
+
+    }
 
 }
