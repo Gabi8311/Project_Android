@@ -20,5 +20,8 @@
     <string name="menu3">Consultar pedidos</string>
     <string name="menu4">Borrar Usuario</string>
     <string name="menu5">Salir</string>
+    <string name="btn_confirmar">Confirmar</string>
+
+
 
 </resources>

@@ -155,7 +155,6 @@ public class MainActivity3 extends AppCompatActivity {
                 if (hasFocus) {
 
                     campo.getText().clear();
-                    campo.setTextColor(Color.parseColor(getString(R.color.white)));
                 }
             }
         });

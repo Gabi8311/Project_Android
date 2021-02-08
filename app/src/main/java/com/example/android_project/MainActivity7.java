@@ -2,7 +2,6 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import java.util.ArrayList;
 import Entidades.Plato;
+import utilidades.MyAdapter;
 import utilidades.Utilidades;
 import android.widget.Toast;
 
@@ -25,6 +25,7 @@ public class MainActivity7 extends AppCompatActivity{
     private ArrayList<Plato> platos_seleccionados;
     private ArrayList<Plato>platos_restaurante;
     private ArrayList<String>platos_rest= new ArrayList<>() ;
+    private ArrayList<Integer>images_platos = new ArrayList<>();
     private String nombre;
 
     ConexionSQLiteHelper conn ;
@@ -51,9 +52,10 @@ public class MainActivity7 extends AppCompatActivity{
 
         for (Plato plato : platos_restaurante) {
             platos_rest.add(plato.toString());
+            images_platos.add(R.drawable.comidas);
         }
 
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, platos_rest);
+        MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
 
         listV_pedido.setAdapter(adaptador);
 

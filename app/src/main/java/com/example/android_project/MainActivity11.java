@@ -32,6 +32,7 @@ public class MainActivity11 extends AppCompatActivity {
         ed_111=findViewById(R.id.ed_nombre);
         ed_112=findViewById(R.id.ed_password);
         btn_111=findViewById(R.id.btn_111);
+        cl11 = findViewById(R.id.cl11);
 
         btn_111.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,11 @@ public class MainActivity11 extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Usuario borrado ", Toast.LENGTH_SHORT).show();
 
+        Intent returnActivity = new Intent(MainActivity11.this, MainActivity.class);
+
+        startActivity(returnActivity);
+
+
         db1.close();
 
     }
@@ -93,9 +99,6 @@ public class MainActivity11 extends AppCompatActivity {
 
                     borrar();
 
-                    Intent returnActivity = new Intent(MainActivity11.this, MainActivity.class);
-
-                    startActivity(returnActivity);
 
                 }
 

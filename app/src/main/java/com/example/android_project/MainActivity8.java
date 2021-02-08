@@ -18,9 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import Entidades.Plato;
 import utilidades.Utilidades;
+import utilidades.MyAdapter;
 
 public class MainActivity8 extends AppCompatActivity {
 
@@ -30,6 +32,7 @@ public class MainActivity8 extends AppCompatActivity {
     private ArrayList<Plato>platos_elegidos = new ArrayList<>();
     private ArrayList<String>tu_pedido = new ArrayList<>();
     private Button btn_confirmar;
+    private ArrayList<Integer>images = new ArrayList<>();
     private String total_string;
     private double precio_total = 0;
     private Integer tiempo_total = 0;
@@ -41,10 +44,11 @@ public class MainActivity8 extends AppCompatActivity {
         setContentView(R.layout.activity_main8);
 
         listV_pedido2 = (ListView) findViewById(R.id.listV_pedido2);
-        tv_8 = findViewById(R.id.tV_8);
+
+
+        tv_8 = findViewById(R.id.tv_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
         btn_confirmar = findViewById(R.id.btn_confirmar);
-        linearLayout8.setBackgroundResource(R.drawable.comidas);
 
         Bundle extras = getIntent().getExtras();
 
@@ -57,6 +61,7 @@ public class MainActivity8 extends AppCompatActivity {
 
         for (Plato plato : platos_elegidos) {
             tu_pedido.add(plato.toString());
+            images.add(R.drawable.alfredos);
             precio_total += plato.getPrecio();
             tiempo_total += plato.getTiempo();
         }
@@ -66,15 +71,15 @@ public class MainActivity8 extends AppCompatActivity {
 
         tv_8.setText("Total --> " + total_string + "€");
 
-        ArrayAdapter<String> adaptador2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tu_pedido);
+        MyAdapter myAdapter = new MyAdapter(this,tu_pedido,images);
+        listV_pedido2.setAdapter(myAdapter);
 
-        listV_pedido2.setAdapter(adaptador2);
 
         listV_pedido2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                lanzar_alertD(position, adaptador2, tv_8);
+                lanzar_alertD(position, myAdapter, tv_8);
 
             }
         });
@@ -128,8 +133,9 @@ public class MainActivity8 extends AppCompatActivity {
 
         startActivity(nineActivity);
     }
-        public void lanzar_alertD(int position, ArrayAdapter adaptador2, TextView tV_8) {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+    public void lanzar_alertD(int position, MyAdapter myAdapter, TextView tv_8) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
 // Configura el titulo.
         alertDialogBuilder.setTitle("Elegir acción");
@@ -144,7 +150,7 @@ public class MainActivity8 extends AppCompatActivity {
                         precio_total = 0;
                         tu_pedido.remove(position);
                         platos_elegidos.remove(position);
-                        adaptador2.notifyDataSetChanged();
+                        myAdapter.notifyDataSetChanged();
 
                         for (Plato plato : platos_elegidos) {
                             precio_total += plato.getPrecio();
