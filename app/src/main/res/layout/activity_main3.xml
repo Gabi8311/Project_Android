@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#130B0B"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:id="@+id/tr_8"
+            android:id="@+id/tr113"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,7 +34,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_1"
+            android:id="@+id/tr_111"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -49,7 +50,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_2"
+            android:id="@+id/tr112"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -60,12 +61,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:hint="Contraseña"/>
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_3"
+            android:id="@+id/tr_113"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -81,7 +82,7 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_4"
+            android:id="@+id/tr114"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -92,8 +93,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone"
-                android:hint="Telefono"/>
+                android:hint="Telefono"
+                android:inputType="phone" />
         </TableRow>
 
         <TableRow
@@ -108,13 +109,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Email"/>
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
             />
         </TableRow>
 
         <TableRow
-            android:id="@+id/tr_7"
+            android:id="@+id/tr_117"
             android:layout_width="198dp"
             android:layout_height="wrap_content"
             android:gravity="center"

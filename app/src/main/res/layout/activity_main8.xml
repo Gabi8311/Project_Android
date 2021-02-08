@@ -4,25 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|center_horizontal|center_vertical"
     android:orientation="vertical"
-    tools:context=".MainActivity8" >
+    tools:context=".MainActivity7">
 
     <ListView
+        android:id="@+id/listV_pedido2"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:divider="@null"
-        android:id="@+id/listV_pedido2"
-        />
+        android:divider="@null" />
+
 
     <TextView
         android:id="@+id/tv_8"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="TextView"
         android:textSize="30dp"
         android:textStyle="bold|italic" />
 
+
+    <Button
+        android:id="@+id/btn_confirmar"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_confirmar" />
 
 </LinearLayout>
