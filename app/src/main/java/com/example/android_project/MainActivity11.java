@@ -28,7 +28,7 @@ public class MainActivity11 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main11);
 
-
+        cl11=findViewById(R.id.cl11);
         ed_111=findViewById(R.id.ed_nombre);
         ed_112=findViewById(R.id.ed_password);
         btn_111=findViewById(R.id.btn_111);
