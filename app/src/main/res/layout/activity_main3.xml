@@ -5,7 +5,7 @@
     android:id="@+id/cl3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#130B0B"
+    android:background="@drawable/muchacomida"
     tools:context=".MainActivity3">
 
     <TableLayout
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nombre de usuario"
+                android:hint="@string/h1"
                 android:inputType="textPersonName" />
         </TableRow>
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="@string/h2"
                 android:inputType="textPassword" />
         </TableRow>
 
@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Direccion"
+                android:hint="@string/h3"
                 android:inputType="textPersonName" />
         </TableRow>
 
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Telefono"
+                android:hint="@string/h4"
                 android:inputType="phone" />
         </TableRow>
 
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/h5"
                 android:inputType="textEmailAddress" />
             />
         </TableRow>

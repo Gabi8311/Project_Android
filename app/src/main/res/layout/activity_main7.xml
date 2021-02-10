@@ -4,7 +4,7 @@
     android:id="@+id/linearLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/muchacomida"
     android:backgroundTint="@android:color/black"
     android:gravity="center"
     android:orientation="vertical"
@@ -22,7 +22,7 @@
         android:layout_width="300dp"
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
-        android:text="Elige tus platos"
+        android:text="@string/tv_7"
         android:textAlignment="center"
         android:textColor="@color/purple_500"
         android:textSize="30dp"
@@ -33,6 +33,6 @@
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:backgroundTint="#00BCD4"
-        android:text="Ver pedido" />
+        android:text="@string/btn_pedido" />
 
 </LinearLayout>

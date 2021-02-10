@@ -21,11 +21,21 @@
 
 
 
-    <string name="menu1">Consultar datos usuario</string>
-    <string name="menu2">Modificar datos de usuario</string>
-    <string name="menu3">Consultar pedidos</string>
-    <string name="menu4">Borrar Usuario</string>
-    <string name="menu5">Salir</string>
-    <string name="btn_confirmar">Confirmar</string>
-
+    <string name="menu1">Check user data</string>
+    <string name="menu2">Update user data</string>
+    <string name="menu3">Check orders</string>
+    <string name="menu4">Delete user</string>
+    <string name="menu5">Leave</string>
+    <string name="btn_confirmar">Confirm</string>
+    <string name="tv_7">Choose your dishes</string>
+    <string name="btn_pedido">Check order</string>
+    <string name="tv_8">Your dishes</string>
+    <string name="btn_borrar">Delete</string>
+    <string name="h1">User name</string>
+    <string name="h2">Password</string>
+    <string name="h3">Addres</string>
+    <string name="h4">Phone</string>
+    <string name="h5">Email</string>
+    <string name="h6">New Password</string>
+    <string name="btn_modificar">Update</string>
 </resources>

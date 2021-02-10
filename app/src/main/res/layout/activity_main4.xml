@@ -5,7 +5,7 @@
     android:id="@+id/cl_5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B0A0A"
+    android:background="@drawable/muchacomida"
     tools:context=".MainActivity4">
 
     <TableLayout
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nombre de usuario"
+                android:hint="@string/h1"
                 android:inputType="textPersonName" />
         </TableRow>
 
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="@string/h2"
                 android:inputType="textPassword" />
         </TableRow>
 
@@ -121,7 +121,8 @@
                 android:backgroundTint="#871515"
                 android:text="Visualizar" />
         </TableRow>
-    </TableLayout><![CDATA[
+    </TableLayout>
+    <![CDATA[
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity4">

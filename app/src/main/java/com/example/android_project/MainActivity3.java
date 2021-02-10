@@ -53,6 +53,7 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
 
+
         vaciar_campo(ed_1);
 
         vaciar_campo(ed_2);

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import Entidades.Pedidos;
+import utilidades.MyAdapter;
 import utilidades.Utilidades;
 
 public class MainActivity10 extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class MainActivity10 extends AppCompatActivity {
     private ArrayList<Pedidos> pedido;
     private ArrayList<String> pedido_s;
     private TextView tv100;
+    private ArrayList<Integer>images_platos = new ArrayList<>();
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_pedidos",null,1);
 
     @Override
@@ -91,11 +93,11 @@ public class MainActivity10 extends AppCompatActivity {
             for(Pedidos ped : pedido){
 
                 pedido_s.add(ped.toString());
-
+                images_platos.add(R.drawable.silueta);
 
             }
 
-            ArrayAdapter<String> add = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pedido_s);
+            MyAdapter add =  new MyAdapter(this, pedido_s,images_platos);
 
             lv1.setAdapter(add);
 

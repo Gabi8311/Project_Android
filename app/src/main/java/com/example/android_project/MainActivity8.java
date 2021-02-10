@@ -28,7 +28,7 @@ public class MainActivity8 extends AppCompatActivity {
 
     private LinearLayout linearLayout8;
     private ListView listV_pedido2;
-    private TextView tv_8;
+    private TextView tV_8;
     private ArrayList<Plato>platos_elegidos = new ArrayList<>();
     private ArrayList<String>tu_pedido = new ArrayList<>();
     private Button btn_confirmar;
@@ -46,7 +46,7 @@ public class MainActivity8 extends AppCompatActivity {
         listV_pedido2 = (ListView) findViewById(R.id.listV_pedido2);
 
 
-        tv_8 = findViewById(R.id.tv_8);
+        tV_8 = findViewById(R.id.tV_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
         btn_confirmar = findViewById(R.id.btn_confirmar);
 
@@ -69,7 +69,7 @@ public class MainActivity8 extends AppCompatActivity {
 
 
 
-        tv_8.setText("Total --> " + total_string + "€");
+        tV_8.setText("Total --> " + total_string + "€");
 
         MyAdapter myAdapter = new MyAdapter(this,tu_pedido,images);
         listV_pedido2.setAdapter(myAdapter);
@@ -79,7 +79,7 @@ public class MainActivity8 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                lanzar_alertD(position, myAdapter, tv_8);
+                lanzar_alertD(position, myAdapter, tV_8);
 
             }
         });
