@@ -5,18 +5,19 @@
     android:id="@+id/cl11"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muchacomida"
+    android:background="@drawable/comida_negro"
     tools:context=".MainActivity11">
 
     <TableLayout
         android:id="@+id/tl4"
-        android:layout_width="346dp"
-        android:layout_height="565dp"
+        android:layout_width="300dp"
+        android:layout_height="358dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466">
 
         <TableRow
             android:id="@+id/tr113"
@@ -27,9 +28,9 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/icono" />
+                android:layout_width="227dp"
+                android:layout_height="121dp"
+                app:srcCompat="@drawable/icono_fondo" />
         </TableRow>
 
         <TableRow

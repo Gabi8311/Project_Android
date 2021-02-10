@@ -30,8 +30,8 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/icono" />
+                android:layout_height="134dp"
+                app:srcCompat="@drawable/icono_fondo" />
         </TableRow>
 
         <TableRow
@@ -140,7 +140,7 @@
                 android:id="@+id/btn_2"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#871515"
+                android:backgroundTint="@color/design_default_color_secondary_variant"
                 android:text="@string/btn_modificar" />
 
         </TableRow>

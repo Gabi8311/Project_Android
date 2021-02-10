@@ -29,7 +29,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:srcCompat="@drawable/icono" />
+                app:srcCompat="@drawable/a_domicilio" />
         </TableRow>
 
         <TableRow

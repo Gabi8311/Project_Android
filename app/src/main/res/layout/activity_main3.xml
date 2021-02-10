@@ -29,8 +29,8 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/icono" />
+                android:layout_height="124dp"
+                app:srcCompat="@drawable/icono_fondo" />
         </TableRow>
 
         <TableRow
@@ -125,7 +125,7 @@
                 android:id="@+id/btn_registrar"
                 android:layout_width="126dp"
                 android:layout_height="52dp"
-                android:backgroundTint="#871515"
+                android:backgroundTint="@color/design_default_color_secondary_variant"
                 android:text="@string/btn_registro" />
         </TableRow>
     </TableLayout>

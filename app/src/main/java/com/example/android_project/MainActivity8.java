@@ -45,10 +45,13 @@ public class MainActivity8 extends AppCompatActivity {
 
         listV_pedido2 = (ListView) findViewById(R.id.listV_pedido2);
 
+        linearLayout8 = findViewById(R.id.linearLayout8);
 
         tV_8 = findViewById(R.id.tV_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
         btn_confirmar = findViewById(R.id.btn_confirmar);
+
+        linearLayout8.setBackgroundResource(R.drawable.comida_negro);
 
         Bundle extras = getIntent().getExtras();
 

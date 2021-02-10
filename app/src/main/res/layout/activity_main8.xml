@@ -4,8 +4,7 @@
     android:id="@+id/linearLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muchacomida"
-    android:backgroundTint="@android:color/darker_gray"
+    android:background="@color/black"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity7">
