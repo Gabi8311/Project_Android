@@ -3,18 +3,15 @@ package com.example.android_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import java.util.ArrayList;
 import Entidades.Plato;
 import utilidades.MyAdapter;
-import utilidades.Utilidades;
+
 import android.widget.Toast;
 
 public class MainActivity7 extends AppCompatActivity{
@@ -35,7 +32,7 @@ public class MainActivity7 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
 
-        listV_pedido = findViewById(R.id.listV_pedido);
+        listV_pedido = findViewById(R.id.listV_restaurantes);
         btn_pedido = findViewById(R.id.btn_pedido);
 
         conn = new ConexionSQLiteHelper(getApplicationContext(), "platos", null, 1);
