@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_Project</string>
+    <string name="app_name">Food Delivery</string>
     <string name="introduce_usuario">Introduce tu nombre de Usuario</string>
     <string name="introduce_password">Introduce tu Password</string>
     <string name="usuario">Usuario</string>

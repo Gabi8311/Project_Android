@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout7"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/muchacomida"
@@ -11,7 +11,7 @@
     tools:context=".MainActivity7">
 
     <ListView
-        android:id="@+id/listV_pedido"
+        android:id="@+id/listV_restaurantes"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:background="@color/black"

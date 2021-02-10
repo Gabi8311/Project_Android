@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android_Project</string>
+    <string name="app_name">Food Delivery</string>
     <string name="introduce_usuario">Enter your Username</string>
     <string name="introduce_password">Enter your Password</string>
     <string name="usuario">User</string>
