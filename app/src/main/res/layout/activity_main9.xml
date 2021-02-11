@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muchacomida"
+    android:background="@drawable/fondo_carne"
     tools:context=".MainActivity9">
 
     <TableLayout
         android:id="@+id/tl_9"
         android:layout_width="331dp"
         android:layout_height="336dp"
-        android:background="#FAF5F5"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +43,7 @@
                 android:id="@+id/tv91"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -59,7 +60,8 @@
             <TextView
                 android:id="@+id/tv92"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat" />
 
         </TableRow>
 
@@ -73,6 +75,7 @@
                 android:id="@+id/tv93"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:gravity="center"
                 android:textColor="@color/color_red"
                 android:textSize="20sp"

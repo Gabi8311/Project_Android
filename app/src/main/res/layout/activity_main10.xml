@@ -5,7 +5,7 @@
     android:id="@+id/cl10"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muchacomida"
+    android:background="@drawable/fondo_pescado"
     android:paddingBottom="10dp"
     tools:context=".MainActivity10">
 
@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:minHeight="100dp"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
         </TableRow>
 

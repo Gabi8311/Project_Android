@@ -5,7 +5,7 @@
     android:id="@+id/cl_5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/muchacomida"
+    android:background="@drawable/fondo_mesa2"
     tools:context=".MainActivity4">
 
     <TableLayout
@@ -29,7 +29,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
-                app:srcCompat="@drawable/icono_fondo" />
+                app:srcCompat="@drawable/logo_blanco" />
         </TableRow>
 
         <TableRow
@@ -44,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/montserrat"
                 android:hint="@string/h1"
                 android:inputType="textPersonName" />
         </TableRow>
@@ -60,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/montserrat"
                 android:hint="@string/h2"
                 android:inputType="textPassword" />
         </TableRow>
@@ -128,6 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/design_default_color_secondary_variant"
+                android:fontFamily="@font/montserrat"
                 android:text="Visualizar" />
         </TableRow>
     </TableLayout>
