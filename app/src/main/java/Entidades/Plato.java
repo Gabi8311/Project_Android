@@ -1,6 +1,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Plato implements Serializable {
 
@@ -74,7 +75,9 @@ public class Plato implements Serializable {
 
     @Override
     public String toString() {
+
+
         return
-                this.nombre_restaurante +"\n"+   this.nombre +"  Precio: " + this.precio + "\n" + this.descripcion;
+                this.nombre_restaurante +"\n\n"+ "+ " +this.nombre +"\n\n  Precio: " + this.precio +" $"+ "\n\n" +"+" +this.descripcion;
     }
 }

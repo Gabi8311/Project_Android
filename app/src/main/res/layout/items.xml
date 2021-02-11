@@ -14,7 +14,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        card_view:cardBackgroundColor="@color/color_grey_light"
+
+        card_view:cardBackgroundColor="@color/white"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="20dp"
         card_view:contentPadding="10dp">
@@ -40,6 +41,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Demo text"
                 android:textSize="20dp"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
 

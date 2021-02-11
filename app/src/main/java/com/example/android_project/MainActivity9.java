@@ -50,7 +50,15 @@ public class MainActivity9 extends AppCompatActivity {
         tv93.setText(String.valueOf(tiempo));
     }
 
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+        Intent returnActivity = new Intent(MainActivity9.this, MainActivity2.class);
+        returnActivity.putExtra("nombre",nombre);
+        startActivity(returnActivity);
 
 
 
+    }
 }
