@@ -1,5 +1,7 @@
 package Entidades;
 
+import com.example.android_project.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,23 +9,28 @@ public class Rellenar_carta {
 
     public static ArrayList<ArrayList> rellenar() {
 
-         ArrayList<Plato> platos_Alfredos;
-         ArrayList<Plato> platos_Babel;
-         ArrayList<Plato> platos_Orecanto;
-         ArrayList<Plato> platos_Pulcinella;
-         ArrayList<Plato> platos_Sushita;
-         ArrayList<ArrayList> all_dishes;
+        ArrayList<Plato> platos_Alfredos;
+        ArrayList<Plato> platos_Babel;
+        ArrayList<Plato> platos_Orecanto;
+        ArrayList<Plato> platos_Pulcinella;
+        ArrayList<Plato> platos_Sushita;
+        ArrayList<Plato> platos_Trattoria;
+        ArrayList<Plato> platos_El_Asador;
+        ArrayList<Plato> platos_Tio_Paco;
+        ArrayList<Plato> platos_Gourmet;
+        ArrayList<Plato> platos_Minotauro;
+        ArrayList<ArrayList> all_dishes;
 
-        Plato p1 = new Plato(1, "Hamburguesa BBQ", "Con nuestra salsa BBQ", 12, 5, "Alfredo´s");
-        Plato p2 = new Plato(2, "Hamburguesa PHILADELPHIA", "Queso Philadelphia y cebolla a la parrilla", 13, 6, "Alfredo´s");
-        Plato p3 = new Plato(3, "Hamburguesa CHILI", "Chile con carne", 9, 4, "Alfredo´s");
-        Plato p4 = new Plato(4, "Hamburguesa BTL O QLT", "Bacon, lechuga, tomate y mayonesa", 17, 8, "Alfredo´s");
-        Plato p5 = new Plato(5, "Hamburguesa BROOKLYN", "Mozzarella, aceite de oliva virgen extra y orégano", 17, 8, "Alfredo´s");
-        Plato p6 = new Plato(6, "Hamburguesa KEFTA", "Con especias marroquíes y ensalada de picadillo", 9, 6, "Alfredo´s");
-        Plato p7 = new Plato(7, "Hamburguesa SOUTHERN JACK", "Con especias del sudoeste, queso Monterrey Jack, pimiento frito y cebolla", 18, 9, "Alfredo´s");
-        Plato p8 = new Plato(8, "Hamburguesa CLASSIC", "Queso, bacon y nuestra salsa BBQ", 18, 7, "Alfredo´s");
-        Plato p9 = new Plato(9, "Hamburguesa GOAT", "Queso de cabra y cebolla caramelizada", 19, 8, "Alfredo´s");
-        Plato p10 = new Plato(10, "Hamburguesa VEGGIE", "Nuestra excepción para vegetarianos experimentados", 15, 8, "Alfredo´s");
+        Plato p1 = new Plato(1, "Hamburguesa BBQ", "Con nuestra salsa BBQ", 12, 5, "Alfredo´s", R.drawable.hambuerguesa_negro);
+        Plato p2 = new Plato(2, "Hamburguesa PHILADELPHIA", "Queso Philadelphia y cebolla a la parrilla", 13, 6, "Alfredo´s", R.drawable.muchas_hamburguesas);
+        Plato p3 = new Plato(3, "Hamburguesa CHILI", "Chile con carne", 9, 4, "Alfredo´s", R.drawable.hambuerguesa_negro);
+        Plato p4 = new Plato(4, "Hamburguesa BTL O QLT", "Bacon, lechuga, tomate y mayonesa", 17, 8, "Alfredo´s", R.drawable.muchas_hamburguesas);
+        Plato p5 = new Plato(5, "Hamburguesa BROOKLYN", "Mozzarella, aceite de oliva virgen extra y orégano", 17, 8, "Alfredo´s", R.drawable.hambuerguesa_negro);
+        Plato p6 = new Plato(6, "Hamburguesa KEFTA", "Con especias marroquíes y ensalada de picadillo", 9, 6, "Alfredo´s", R.drawable.muchas_hamburguesas);
+        Plato p7 = new Plato(7, "Hamburguesa SOUTHERN JACK", "Con especias del sudoeste, queso Monterrey Jack, pimiento frito y cebolla", 18, 9, "Alfredo´s", R.drawable.hambuerguesa_negro);
+        Plato p8 = new Plato(8, "Hamburguesa CLASSIC", "Queso, bacon y nuestra salsa BBQ", 18, 7, "Alfredo´s", R.drawable.muchas_hamburguesas);
+        Plato p9 = new Plato(9, "Hamburguesa GOAT", "Queso de cabra y cebolla caramelizada", 19, 8, "Alfredo´s", R.drawable.hambuerguesa_negro);
+        Plato p10 = new Plato(10, "Hamburguesa VEGGIE", "Nuestra excepción para vegetarianos experimentados", 15, 8, "Alfredo´s", R.drawable.muchas_hamburguesas);
 
         platos_Alfredos = new ArrayList<>(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 
@@ -83,10 +90,77 @@ public class Rellenar_carta {
 
         platos_Sushita = new ArrayList<>(Arrays.asList(p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
 
-        all_dishes = new ArrayList<>(Arrays.asList(platos_Alfredos, platos_Babel, platos_Orecanto, platos_Pulcinella, platos_Sushita));
+
+        Plato p51 = new Plato(51, "Lasaña Trattoria", "La mejor Lasaña de Italia en tu plato.Carne de máxima calidad", 14, 10, "Trattoria");
+        Plato p52 = new Plato(52, "Macarrones al pesto", "Famosos en todo Madrid.Una de nuestras joyas", 12, 8, "Trattoria");
+        Plato p53 = new Plato(53, "Spaghetti Bolognesa", "No hay ningunos bolognes como los nuestros.Te retamos a que encuentres unos mejores", 10, 9, "Trattoria");
+        Plato p54 = new Plato(54, "California especial", "Maki especial con sémola alrededor, relleno de gamba y quinoa", 12, 10, "Trattoria");
+        Plato p55 = new Plato(55, "Pizza con piña", "La mejor adaptación de la odiada piña en la pizza.Pruébala!", 12, 8, "Trattoria");
+        Plato p56 = new Plato(56, "Gnocchi de gorgonsola", "Con la salsa de tomate casera conocida en todo el mundo", 14, 7, "Trattoria");
+        Plato p57 = new Plato(57, "Scaloppina di pollo", "Filete de pollo empanado gratinados con pomodoro", 13, 6, "Trattoria");
+        Plato p58 = new Plato(58, "Solomillo di malale cosa nostra", "Solomillo de cerdo cabreado al estilo cosa nostra", 12, 8, "Trattoria");
+        Plato p59 = new Plato(59, "Salmone con croste di senape", "Suprema de salmón con costra de mostaza", 15, 7, "Trattoria");
+        Plato p60 = new Plato(60, "Tonno rosso alla siciliana", "Lomo de atún rojo a la siciliana", 12, 8, "Trattoria");
+
+        platos_Trattoria = new ArrayList<>(Arrays.asList(p51, p52, p53, p54, p55, p56, p57, p58, p59, p60));
+
+
+        Plato p61 = new Plato(61, "Jamón y Lomo ibérico con Pan y Tomate", "De los mejores cerdos extremeños,tratados mejor que al principe de Zamunda", 16, 6, "El Asador");
+        Plato p62 = new Plato(62, "Pimientos rellenos de Marisco con salsa de nécoras", "Calidad suprema en uno de nuestros platos estrella", 21, 9, "El Asador");
+        Plato p63 = new Plato(63, "Arroz cremoso de Setas y Hongos trufados", "Preparación al estilo burgalés con la mejor materia prima", 20, 15, "El Asador");
+        Plato p64 = new Plato(64, "Tortilla de Bacalao estilo  Sidreria", "Conocida en todo Madrid y ganadora del Trofeo 'Mejor tortilla del Año'", 12, 9, "El Asador");
+        Plato p65 = new Plato(65, "Solomillo (500g)", "Carne de máxima calidad a la parrilla,con salsa de trufa,", 18, 8, "El Asador");
+        Plato p66 = new Plato(66, "Chuletón de Buey a la parrilla (800g)", "Una de nuestras especialidades,cocinado con la mejor parrilla de Madrid", 22, 8, "El Asador");
+        Plato p67 = new Plato(67, "Filete de ternera blanca", "Máxima calidad de carne.Servido con una salsa de hongos", 14, 7, "El Asador");
+        Plato p68 = new Plato(68, "Entrecotte de Kilo", "Es una bestialidad,tanto por su calidad como por su tamaño.Una locura", 28, 8, "El Asador");
+        Plato p69 = new Plato(69, "Costillas de ternera", "Uno de nuestros mayores caprichos.Nuestra salsa de ajo es la Mejor del mundo,sin duda", 16, 12, "El Asador");
+        Plato p70 = new Plato(70, "Parrillada de Carne", "Salchichas,chorizo,loganiza,secreto...3Kg de carne de primera calidad", 30, 14, "El Asador");
+
+        platos_El_Asador = new ArrayList<>(Arrays.asList(p61, p62, p63, p64, p65, p66, p67, p68, p69, p70));
+
+
+        Plato p71 = new Plato(71, "Pastel Templado de centollo y Buey de Mar", "Tiene nuestro secreto de éxito.Máxima calidad en cada uno de los productos", 20, 10, "Tío_Paco");
+        Plato p72 = new Plato(72, "Croquetas de cocido", "Con la receta de Paco,inamovible en el tiempo.Una delicia", 12, 6, "Tío_Paco");
+        Plato p73 = new Plato(73, "Revuelto de Morcilla", "Premio nacional de gastronomía.Una de nuestras delicias", 14, 9, "Tío_Paco");
+        Plato p74 = new Plato(74, "Tartar de Salmón Noruego", "El mejor atún que hay en el mercado.Calidad Suprema", 20, 8, "Tío_Paco");
+        Plato p75 = new Plato(75, "Pulpito de roca gallego en parrilla", "Como buenos gallegos,nuestro pulpo es uno de los platos más mimados", 18, 8, "Tío_Paco");
+        Plato p76 = new Plato(76, "Judiones de la granja", "Auténticos de la granja segoviana al estilo tradicional gallego", 13, 10, "Tío_Paco");
+        Plato p77 = new Plato(77, "Chuletón de vaca vieja gallega", "Uno de nuestros platos que más orgullo nos provoca.Calidad reconocida", 28, 7, "Tío_Paco");
+        Plato p78 = new Plato(78, "Lubina salvaje a la parrilla", "Recién llegada de nuestra tierra a tu plato ,con un máximo de 24h", 16, 7, "Tío_Paco");
+        Plato p79 = new Plato(79, "Rodaballo salvaje a la parrilla", "Tenemos el orgullo de poder decir que tenemos el mejor rodaballo de Galicia", 18, 8, "Tío_Paco");
+        Plato p80 = new Plato(80, "Hamburguesa especial Wagym", "Carne de Kobe.Una de las mejores hamburguesas del planeta", 25, 8, "Tío_Paco");
+
+        platos_Tio_Paco = new ArrayList<>(Arrays.asList(p71, p72, p73, p74, p75, p76, p77, p78, p79, p80));
+
+        Plato p81 = new Plato(81, "Codorniz escabechada", "Una receta para todo el año,no sólo para la temporada de caza", 12, 7, "Gourmet");
+        Plato p82 = new Plato(82, "Huevos rotos con boletus y trufa", "Un plato sencillo pero que siempre triunfa.Aprovecha la temporada de setas", 11, 9, "Gourmet");
+        Plato p83 = new Plato(83, "Rollitos de lenguado", "Deliciciosa receta elaborada con uno de los pescados más saludables de nuestra gastronomía", 12, 6, "Gourmet");
+        Plato p84 = new Plato(84, "Merluza rellena de gambas", "Horneada atemperatura baja con el mimo de los grandes cocineros", 14, 8, "Gourmet");
+        Plato p85 = new Plato(85, "silla de cordero", "Por su grasa y su fuerte sabor es ideal para combinarlo con sabores ácidos y dulces", 16, 10, "Gourmet");
+        Plato p86 = new Plato(86, "Medallones de Bogavante", "El sabor del espárrago,el ahumado del salmón y el sabor yodado del crústaceo.Locura!", 16, 8, "Gourmet");
+        Plato p87 = new Plato(87, "Jamón asado a la Gallega", "Es una delicia de receta.Plato típico gallego", 14, 12, "Gourmet");
+        Plato p88 = new Plato(88, "Salmonetes a la plancha sobre risotto", "Delicioso arroz cremoso que se deshace en la boca,textura untosa y suave sabor", 14, 9, "Gourmet");
+        Plato p89 = new Plato(89, "Albóndigas de Turingia", "No son de carne,sino de papas.Acompañadas de un buen asado,con su correspondiente salsa sabrosa.", 13, 6, "Gourmet");
+        Plato p90 = new Plato(90, "Brochetas de cordero", "Es una receta típica.Marinadas con una salsa de confit de manzana", 14, 8, "Gourmet");
+
+        platos_Gourmet = new ArrayList<>(Arrays.asList(p81, p82, p83, p84, p85, p86, p87, p88, p89, p90));
+
+        Plato p91 = new Plato(91, "Chuletillas de cordero", "Lechal de Segovia (6 Piezas)", 18, 6, "Minotauro");
+        Plato p92 = new Plato(92, "Villagodio Supremo", "Chuletón de lomo alto con 5 semanas de maduración (800g sin hueso)", 52, 5, "Minotauro");
+        Plato p93 = new Plato(93, "Steak tartar de Solomillo", "Cortado a cuchillo y acabado a su gusto con regañas", 22, 8, "Minotauro");
+        Plato p94 = new Plato(94, "Rabo de Buey", "Macerado en Pedro Ximénez y guisado al 'Chup Chup' como en Córdoba", 18, 10, "Minotauro");
+        Plato p95 = new Plato(95, "Vacío de Kobe", "De vaca Waygu.Australia (250g)", 24, 8, "Minotauro");
+        Plato p96 = new Plato(96, "Degustación de carnes", "5 escalopines de 50g.Entrecot,solomillo de avestruz,escalopines de canguro,lomo de cebra y vacio de Kobe", 24, 8, "Minotauro");
+        Plato p97 = new Plato(97, "Entraña", "carne roja con 27 días de maduración (300g)", 19, 7, "Minotauro");
+        Plato p98 = new Plato(98, "Solomillo de Ibérico", "En medallones,con reducción de Pedro Ximénez y arroz al curry", 16, 8, "Minotauro");
+        Plato p99 = new Plato(99, "Pulpo de roca", "Con puré de cachelo al pimentón (250g)", 20, 9, "Minotauro");
+        Plato p100 = new Plato(100, "Lomo de atún rojo", "Poco hecho con sésamo tostado y mayonesa wasibi", 21, 8, "Minotauro");
+
+        platos_Minotauro = new ArrayList<>(Arrays.asList(p91, p92, p93, p94, p95, p96, p97, p98, p99, p100));
+
+        all_dishes = new ArrayList<>(Arrays.asList(platos_Alfredos, platos_Babel, platos_Orecanto, platos_Pulcinella, platos_Sushita, platos_Trattoria, platos_El_Asador, platos_Tio_Paco, platos_Gourmet, platos_Minotauro));
 
         return all_dishes;
 
     }
-
 }

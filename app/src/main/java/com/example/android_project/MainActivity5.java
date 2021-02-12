@@ -48,7 +48,6 @@ public class MainActivity5 extends AppCompatActivity {
 
         if (extras != null) {
 
-
             nombre = (String) extras.get("nombre");
 
         }
@@ -74,10 +73,8 @@ public class MainActivity5 extends AppCompatActivity {
         });
 
         vaciar_campo(ed_nombre);
-
         vaciar_campo(ed_password);
         vaciar_campo(ed_password2);
-
 
         //Limpia el foco cuando haces click en el constraint Layout
         cl_5.setOnClickListener(new View.OnClickListener() {
@@ -89,25 +86,19 @@ public class MainActivity5 extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void mostrarInfo() {
-
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String [] parametros = {nombre};
         String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD,Utilidades.CAMPO_DIRECCION
                 ,Utilidades.CAMPO_TELEFONO,Utilidades.CAMPO_EMAIL};
 
-
         try {
 
             Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
-
             cursor.moveToFirst();
-
 
             if(cursor.getString(0).equals(nombre))  {
 
@@ -117,22 +108,16 @@ public class MainActivity5 extends AppCompatActivity {
                 ed_9.setText(cursor.getString(3));
                 ed_10.setText(cursor.getString(4));
 
-
             }
-
 
             cursor.close();
             db.close();
-
 
         }catch(Exception e){
 
             Toast.makeText(getApplicationContext(), "Usuario no encontrado ", Toast.LENGTH_SHORT).show();
 
-
         }
-
-
     }
 
     public void modificarUsuario(){
@@ -163,7 +148,5 @@ public class MainActivity5 extends AppCompatActivity {
                 }
             }
         });
-
     }
-
 }

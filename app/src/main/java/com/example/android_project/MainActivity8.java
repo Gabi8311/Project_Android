@@ -44,9 +44,7 @@ public class MainActivity8 extends AppCompatActivity {
         setContentView(R.layout.activity_main8);
 
         listV_pedido2 = (ListView) findViewById(R.id.listV_pedido2);
-
         linearLayout8 = findViewById(R.id.linearLayout8);
-
         tV_8 = findViewById(R.id.tV_8);
         linearLayout8 = findViewById(R.id.linearLayout8);
         btn_confirmar = findViewById(R.id.btn_confirmar);
@@ -71,7 +69,6 @@ public class MainActivity8 extends AppCompatActivity {
         total_string = Double.toString(precio_total);
 
 
-
         tV_8.setText("Total --> " + total_string + "€");
 
         MyAdapter myAdapter = new MyAdapter(this,tu_pedido,images);
@@ -87,9 +84,6 @@ public class MainActivity8 extends AppCompatActivity {
             }
         });
 
-
-
-
         btn_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,10 +96,8 @@ public class MainActivity8 extends AppCompatActivity {
 
                    registrarPedido();
                }
-
             }
         });
-
     }
 
     public void registrarPedido() {
@@ -169,6 +161,4 @@ public class MainActivity8 extends AppCompatActivity {
                     }
                 }).create().show();
     }
-
-
 }

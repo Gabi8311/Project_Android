@@ -19,6 +19,7 @@ public class MyAdapter extends ArrayAdapter {
     List<String> listTiltle;
     List<Integer>imageList;
     Context context;
+
     public MyAdapter(@NonNull Context context,List<String>listTiltle,List<Integer>imageList) {
         super(context, R.layout.activity_main8,listTiltle);
 

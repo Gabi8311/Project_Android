@@ -32,22 +32,18 @@ public class MainActivity9 extends AppCompatActivity {
         tv92 = findViewById(R.id.tv92);
         tv93 = findViewById(R.id.tv93);
 
-
-
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-
 
             nombre = (String) extras.get("nombre");
             tiempo = (Integer) extras.get("tiempo");
 
         }
 
-
         tv91.setText(nombre);
         tv92.setText("Su pedido llegará a su destino en: " );
-        tv93.setText(String.valueOf(tiempo));
+        tv93.setText(String.valueOf(tiempo) + " minutos");
     }
 
     @Override
@@ -57,8 +53,6 @@ public class MainActivity9 extends AppCompatActivity {
         Intent returnActivity = new Intent(MainActivity9.this, MainActivity2.class);
         returnActivity.putExtra("nombre",nombre);
         startActivity(returnActivity);
-
-
 
     }
 }

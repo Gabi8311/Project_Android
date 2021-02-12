@@ -11,6 +11,7 @@ public class Plato implements Serializable {
     private double precio;
     private int tiempo;
     private String nombre_restaurante;
+    private int imagen;////////
 
     public Plato () {
 
@@ -23,6 +24,16 @@ public class Plato implements Serializable {
         this.precio = precio;
         this.tiempo = tiempo;
         this.nombre_restaurante = nombre_restaurante;
+    }
+
+    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo,String nombre_restaurante,int imagen) {
+        this.id_plato = id_plato;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tiempo = tiempo;
+        this.nombre_restaurante = nombre_restaurante;
+        this.imagen = imagen;///////////////////////////
     }
 
     public int getId_plato() {
@@ -72,7 +83,15 @@ public class Plato implements Serializable {
     public void setNombre_restaurante(String nombre_restaurante) {
         this.nombre_restaurante = nombre_restaurante;
     }
+///////////////////////////////////////////////
+    public int getImagen() {
+        return imagen;
+    }
 
+    public void setImagen(int imagen) {
+        this.imagen = imagen;
+    }
+/////////////////////////////////////////////
     @Override
     public String toString() {
 

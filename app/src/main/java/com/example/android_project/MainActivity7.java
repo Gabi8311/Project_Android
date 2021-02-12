@@ -49,7 +49,8 @@ public class MainActivity7 extends AppCompatActivity{
 
         for (Plato plato : platos_restaurante) {
             platos_rest.add(plato.toString());
-            images_platos.add(R.drawable.comidas);
+            images_platos.add(plato.getImagen());///////////////////////////////////////////////////////////
+            System.out.println(plato.getImagen()+"fdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
         }
 
         MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
@@ -67,6 +68,7 @@ public class MainActivity7 extends AppCompatActivity{
                 lista_platos.add(platos_restaurante.get(position));
             }
         });
+
         ///Para llevarnos los platos pedidos al main8
         btn_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +81,4 @@ public class MainActivity7 extends AppCompatActivity{
             }
         });
     }
-
-
-
 }

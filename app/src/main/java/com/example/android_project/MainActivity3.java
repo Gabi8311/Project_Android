@@ -20,15 +20,13 @@ import utilidades.Utilidades;
 
 public class MainActivity3 extends AppCompatActivity {
 
-   private EditText ed_1;
-    private EditText  ed_2;
-    private EditText  ed_3;
-    private EditText  ed_4;
-    private EditText  ed_5;
+    private EditText ed_1;
+    private EditText ed_2;
+    private EditText ed_3;
+    private EditText ed_4;
+    private EditText ed_5;
     private Button btn_registrar;
     private ConstraintLayout cl3;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +50,7 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
-
-
         vaciar_campo(ed_1);
-
         vaciar_campo(ed_2);
         vaciar_campo(ed_3);
         vaciar_campo(ed_4);
@@ -103,26 +98,21 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (!verificar) {
 
-                if(ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() != 0
-                && ed_3.getText().toString().length() != 0 && ed_4.getText().toString().length() != 0
-                && ed_5.getText().toString().length() != 0) {
+            if (ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() != 0
+                    && ed_3.getText().toString().length() != 0 && ed_4.getText().toString().length() != 0
+                    && ed_5.getText().toString().length() != 0) {
 
-                    registrarUsuario();
+                registrarUsuario();
 
-                    Intent firstActivity = new Intent(MainActivity3.this, MainActivity.class);
-                    startActivity(firstActivity);
-                }else{
+                Intent firstActivity = new Intent(MainActivity3.this, MainActivity.class);
+                startActivity(firstActivity);
+            } else {
 
-                    Toast.makeText(getApplicationContext(),"Debe rellenar los campos", Toast.LENGTH_SHORT ).show();
-
-                }
+                Toast.makeText(getApplicationContext(), "Debe rellenar los campos", Toast.LENGTH_SHORT).show();
 
             }
-
-
-
-
         }
+    }
 
 
     public void registrarUsuario() {
@@ -144,8 +134,6 @@ public class MainActivity3 extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "id Registro: " + idFinal, Toast.LENGTH_SHORT).show();
         db.close();
 
-
-
     }
 
     public void vaciar_campo(EditText campo) {
@@ -159,6 +147,5 @@ public class MainActivity3 extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

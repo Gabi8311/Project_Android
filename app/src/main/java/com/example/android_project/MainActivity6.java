@@ -46,11 +46,10 @@ public class MainActivity6 extends AppCompatActivity {
                 informacion += "Precio " + lista_platos.get(position).getPrecio();
                 informacion += "Tiempo " + lista_platos.get(position).getTiempo();
 
-
             }
         });
     }
-    ////////////////////////////tV_comentarios6.setMovementMethod(new ScrollingMovementMethod());
+
     private void consultar_lista_platos() {
         SQLiteDatabase db = conn.getReadableDatabase();
 
