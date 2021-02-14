@@ -58,7 +58,7 @@ public class Rellenar_carta {
         Plato p27 = new Plato(27, "Entrecot de ternera gallega", "Una de nuestras especialidades.Uno de los platos que nos ha hecho famosos", 21, 7, "O´recanto","entrecot");
         Plato p28 = new Plato(28, "Chuletón de vaca gallegaa", "La mejor carne que puedas encontrar.Si encuentra algo mejor le devolvemos el dinero", 59, 8, "O´recanto","chuleton");
         Plato p29 = new Plato(29, "Steak tartere rubia gallega", "Auténtica ambrosía de los dioses", 25, 9, "O´recanto","tartar");
-        Plato p30 = new Plato(30, "Bogavante", "El precio por cada Kg", 80, 8, "O´recanto","bogavnte");
+        Plato p30 = new Plato(30, "Bogavante", "El precio por cada Kg", 80, 8, "O´recanto","bogavante");
 
         platos_Orecanto = new ArrayList<>(Arrays.asList(p21, p22, p23, p24, p25, p26, p27, p28, p29, p30));
 

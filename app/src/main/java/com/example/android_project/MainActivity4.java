@@ -78,9 +78,9 @@ public class MainActivity4 extends AppCompatActivity {
 
             if (cursor.getString(0).equals(ed_nombre.getText().toString()) && cursor.getString(1).equals(ed_password.getText().toString())) {
 
-                tv_1.setText("Email: " + cursor.getString(2));
+                tv_1.setText("Direccion: " + cursor.getString(2));
                 tv_2.setText("Telefono: " + cursor.getString(3));
-                tv_3.setText("Direccion: " + cursor.getString(4));
+                tv_3.setText("Email: " + cursor.getString(4));
 
             }
 
