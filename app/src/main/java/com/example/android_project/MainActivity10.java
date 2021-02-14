@@ -60,8 +60,6 @@ public class MainActivity10 extends AppCompatActivity {
 
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
-
-
                 if (cursor.getString(0).equals(nombre)) {
 
                     Pedidos p = new Pedidos();

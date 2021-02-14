@@ -58,12 +58,11 @@ public class Pedidos implements Serializable {
     @Override
     public String toString() {
 
-        String platos = plato.replace("[", "").replace("]", "");
+        String platos = plato.replace("[", "").replace("]", "").replace(","," ");
 
         return "Pedido : " + this.id_pedidos + "\n\n" +
                 "Restaurante: " + this.nombre_rest + "\n\n" +
-                "Plato: " + platos + "\n\n" +
-                "Tiempo total: " + this.tiempo_total + " min "
-                ;
+                 platos + "\n" +
+                "Tiempo total:\n" + this.tiempo_total + " min ";
     }
 }

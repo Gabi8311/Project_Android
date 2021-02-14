@@ -40,7 +40,7 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Demo text"
-                android:textSize="20dp"
+                android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>

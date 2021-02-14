@@ -86,7 +86,6 @@ public class Plato implements Serializable {
     @Override
     public String toString() {
 
-
-        return " + " + this.nombre + "\n\n  Precio: " + this.precio + " €" + "\n\n" + " + " + this.descripcion;
+        return "\n+ " + this.nombre + "\n\n  Precio: " + this.precio + " €" + "\n\n" + " '" + this.descripcion + "'\n";
     }
 }

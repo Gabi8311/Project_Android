@@ -37,7 +37,7 @@ public class Rellenar_carta {
 
         Plato p11 = new Plato(11, "Croquetas con chipirones", "Con aguacate, pepinillo y papaya", 14, 6, "Babel", "croquetas");
         Plato p12 = new Plato(12, "Huevos rotos", "A baja temperatura al aroma de trufa blanca con crujiente jamón", 10, 6, "Babel", "huevos_rotos");
-        Plato p13 = new Plato(13, "Poke de salmón", "Chile con carne", 9, 4, "Babel", "poke");
+        Plato p13 = new Plato(13, "Poke de salmón", "El mejor Poke de la zona Norte de Madrid. Disfrútalo!", 9, 4, "Babel", "poke");
         Plato p14 = new Plato(14, "Arroz a banda", "(Para 2 personas)Precio por persona", 10, 10, "Babel", "arroz_banda");
         Plato p15 = new Plato(15, "Hamburguesa de picada de vaca", "Madurada con idiazabál y mahonesa de albahaca", 14, 8, "Babel", "picada");
         Plato p16 = new Plato(16, "Bao de pollo", "Con pollo y shitake", 5, 4, "Babel", "bao2");
