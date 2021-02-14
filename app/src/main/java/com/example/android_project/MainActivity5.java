@@ -59,14 +59,14 @@ public class MainActivity5 extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (ed_password.getText().toString().equals(ed_password2.getText().toString()) && ed_8.getText().toString().length() != 0 && ed_9.getText().toString().length() != 0
-                        && ed_10.getText().toString().length() != 0 && ed_password2.getText().toString().length() != 0
+                        && ed_10.getText().toString().length() != 0 && ed_password2.getText().toString().length() > 7
                 ) {
 
                     modificarUsuario();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos y que su contraseña sea igual  ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos y que su contraseña sea igual y superior a 8 digitos  ", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -144,7 +144,7 @@ public class MainActivity5 extends AppCompatActivity {
                 if (hasFocus) {
 
                     campo.getText().clear();
-                    campo.setTextColor(Color.parseColor(getString(R.color.white)));
+                    campo.setTextColor(Color.parseColor(getString(R.color.black)));
                 }
             }
         });
