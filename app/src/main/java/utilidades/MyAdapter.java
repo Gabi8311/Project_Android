@@ -17,11 +17,11 @@ import java.util.List;
 
 public class MyAdapter extends ArrayAdapter {
     List<String> listTiltle;
-    List<Integer>imageList;
+    List<Integer> imageList;
     Context context;
 
-    public MyAdapter(@NonNull Context context,List<String>listTiltle,List<Integer>imageList) {
-        super(context, R.layout.activity_main8,listTiltle);
+    public MyAdapter(@NonNull Context context, List<String> listTiltle, List<Integer> imageList) {
+        super(context, R.layout.activity_main8, listTiltle);
 
         this.listTiltle = listTiltle;
         this.imageList = imageList;
@@ -31,7 +31,7 @@ public class MyAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-    View view = LayoutInflater.from(context).inflate(R.layout.items,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.items, parent, false);
         ImageView imageView = view.findViewById(R.id.imageView);
         TextView textView = view.findViewById(R.id.textView);
 

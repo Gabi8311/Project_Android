@@ -14,7 +14,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-
         card_view:cardBackgroundColor="@color/white"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="20dp"
@@ -39,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Demo text"
                 android:textSize="20dp"
                 android:textColor="@color/black"

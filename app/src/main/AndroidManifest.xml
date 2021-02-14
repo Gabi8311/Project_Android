@@ -13,7 +13,6 @@
         <activity android:name=".MainActivity10" />
         <activity android:name=".MainActivity9" />
         <activity android:name=".MainActivity8" />
-        <activity android:name=".MainActivity6" />
         <activity android:name=".MainActivity5" />
         <activity android:name=".MainActivity7" />
         <activity android:name=".MainActivity4" />

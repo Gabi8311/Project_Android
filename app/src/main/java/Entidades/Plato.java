@@ -12,7 +12,6 @@ public class Plato implements Serializable {
     private int tiempo;
     private String nombre_restaurante;
     private String imagen;
-    private String h;
 
     public Plato() {
 
@@ -72,7 +71,9 @@ public class Plato implements Serializable {
         return nombre_restaurante;
     }
 
-    public void setNombre_restaurante(String nombre_restaurante) { this.nombre_restaurante = nombre_restaurante; }
+    public void setNombre_restaurante(String nombre_restaurante) {
+        this.nombre_restaurante = nombre_restaurante;
+    }
 
     public String getImagen() {
         return imagen;
@@ -82,14 +83,10 @@ public class Plato implements Serializable {
         this.imagen = imagen;
     }
 
-    public String getH() {
-        return h;
-    }
-
     @Override
     public String toString() {
 
 
-        return " + this.nombre "+ "\n\n  Precio: " + this.precio + " $" + "\n\n" + "+" + this.descripcion ;
+        return " + " + this.nombre + "\n\n  Precio: " + this.precio + " €" + "\n\n" + " + " + this.descripcion;
     }
 }

@@ -29,14 +29,16 @@ public class MainActivity8 extends AppCompatActivity {
     private LinearLayout linearLayout8;
     private ListView listV_pedido2;
     private TextView tV_8;
-    private ArrayList<Plato>platos_elegidos = new ArrayList<>();
-    private ArrayList<String>tu_pedido = new ArrayList<>();
+    private ArrayList<Plato> platos_elegidos = new ArrayList<>();
+    private ArrayList<String> tu_pedido = new ArrayList<>();
     private Button btn_confirmar;
-    private ArrayList<Integer>images = new ArrayList<>();
+    private ArrayList<Integer> images = new ArrayList<>();
     private String total_string;
     private double precio_total = 0;
     private Integer tiempo_total = 0;
     private String nombre;
+    private Integer imagesInt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class MainActivity8 extends AppCompatActivity {
         linearLayout8 = findViewById(R.id.linearLayout8);
         btn_confirmar = findViewById(R.id.btn_confirmar);
 
-        linearLayout8.setBackgroundResource(R.drawable.comida_negro);
+        linearLayout8.setBackgroundResource(R.color.black);
 
         Bundle extras = getIntent().getExtras();
 
@@ -62,16 +64,18 @@ public class MainActivity8 extends AppCompatActivity {
 
         for (Plato plato : platos_elegidos) {
             tu_pedido.add(plato.toString());
-            images.add(R.drawable.alfredos);
+            imagesInt = getResources().getIdentifier(plato.getImagen(), "drawable", this.getPackageName());
+            images.add(imagesInt);
+
             precio_total += plato.getPrecio();
             tiempo_total += plato.getTiempo();
         }
         total_string = Double.toString(precio_total);
 
 
-        tV_8.setText("Total --> " + total_string + "€");
+        tV_8.setText("Total:  " + total_string + "€");
 
-        MyAdapter myAdapter = new MyAdapter(this,tu_pedido,images);
+        MyAdapter myAdapter = new MyAdapter(this, tu_pedido, images);
         listV_pedido2.setAdapter(myAdapter);
 
 
@@ -88,14 +92,14 @@ public class MainActivity8 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               if(platos_elegidos.size()<=0) {
+                if (platos_elegidos.size() <= 0) {
 
-                   Toast.makeText(getApplicationContext(),"No hay platos introducidos", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText(getApplicationContext(), "No hay platos introducidos", Toast.LENGTH_SHORT).show();
 
-               }else{
+                } else {
 
-                   registrarPedido();
-               }
+                    registrarPedido();
+                }
             }
         });
     }
@@ -151,7 +155,7 @@ public class MainActivity8 extends AppCompatActivity {
                             precio_total += plato.getPrecio();
                         }
                         total_string = Double.toString(precio_total);
-                        tv_8.setText("Total --> " + total_string + "€");
+                        tv_8.setText("Total:  " + total_string + "€");
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

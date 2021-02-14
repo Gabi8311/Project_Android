@@ -49,13 +49,11 @@ public class MainActivity7 extends AppCompatActivity{
         }
 
         for (Plato plato : platos_restaurante) {
-            System.out.println(plato);
             platos_rest.add(plato.toString());
             imagenInt = getResources().getIdentifier(plato.getImagen(),"drawable",this.getPackageName());
             images_platos.add(imagenInt);
         }
-//    int id = context.resources.getIdentifier(currentItem.image, "drawable", context.packageName)
-//       image.setImageResource(id)
+
         MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
 
         listV_pedido.setAdapter(adaptador);

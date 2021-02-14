@@ -2,7 +2,6 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -10,23 +9,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-
-
 import Entidades.Plato;
 import Entidades.Rellenar_carta;
 import utilidades.Utilidades;
 
-import static Entidades.Rellenar_carta.rellenar;
 
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout cL_1;
@@ -39,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean platos_introducidos = false;
 
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
-    ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+    ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this, "platos", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         cL_1.setBackgroundColor(Color.BLACK);
 
         //Comprueba si los datos no están incluidos,no vuelve a crear ni insertar los platos
-        if(!platos_introducidos){
+
+        if (!platos_introducidos) {
 
             insertar_platos();
         }
@@ -98,25 +91,25 @@ public class MainActivity extends AppCompatActivity {
     public void consultar_usuario() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {eT_user.getText().toString()};
-        String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD};
+        String[] parametros = {eT_user.getText().toString()};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_PASSWORD};
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
+            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
             cursor.moveToFirst();
 
-            if(cursor.getString(0).equals(eT_user.getText().toString())) {
+            if (cursor.getString(0).equals(eT_user.getText().toString())) {
 
-                if(cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString()))  {
+                if (cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString())) {
 
                     Toast.makeText(getApplicationContext(), "Bienvenido ", Toast.LENGTH_SHORT).show();
 
                     Intent secondActivity = new Intent(MainActivity.this, MainActivity2.class);
-                    secondActivity.putExtra("nombre",cursor.getString(0));
+                    secondActivity.putExtra("nombre", cursor.getString(0));
                     startActivity(secondActivity);
 
-                }else{
+                } else {
 
                     Toast.makeText(getApplicationContext(), "Password incorrecto", Toast.LENGTH_SHORT).show();
                 }
@@ -125,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
             db.close();
 
-        }catch(Exception e){
+        } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), "Usuario incorrecto", Toast.LENGTH_SHORT).show();
         }
@@ -144,30 +137,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void insertar_platos() {
+    public boolean insertar_platos() {
 
         SQLiteDatabase db = conn2.getWritableDatabase();
-
-        ArrayList<ArrayList>all_dishes = new ArrayList<>();
+        ArrayList<ArrayList> all_dishes = new ArrayList<>();
         all_dishes = Rellenar_carta.rellenar();
 
-            for (ArrayList<Plato> carta : all_dishes) {
-                for (Plato plato : carta) {
+        for (ArrayList<Plato> carta : all_dishes) {
+            for (Plato plato : carta) {
 
-                    ContentValues valores = new ContentValues();
-                    valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
-                    valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
-                    valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
-                    valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
-                    valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE,plato.getNombre_restaurante());
-                    valores.put(Utilidades.CAMPO_IMAGEN_PLATO,plato.getImagen());
+                ContentValues valores = new ContentValues();
+                valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
+                valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
+                valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
+                valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
+                valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE, plato.getNombre_restaurante());
+                valores.put(Utilidades.CAMPO_IMAGEN_PLATO, plato.getImagen());
 
-                    db.insert(Utilidades.TABLA_PLATO, null, valores);
-                }
+                db.insert(Utilidades.TABLA_PLATO, null, valores);
             }
+        }
 
         db.close();
-        platos_introducidos = true;
-    }
 
+        platos_introducidos = true;
+
+        return platos_introducidos;
+    }
 }

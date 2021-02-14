@@ -30,7 +30,6 @@ import utilidades.Utilidades;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private LinearLayout linearLayout2;
     private ListView listV_restaurantes;
     private String nombre;
     private ArrayList<Plato> platos_restaurante;
@@ -72,35 +71,35 @@ public class MainActivity2 extends AppCompatActivity {
                         consultar_carta("Alfredo´s", view);
                         break;
 
-                    case 3:
+                    case 2:
                         consultar_carta("Babel", view);
                         break;
 
-                    case 4:
+                    case 3:
                         consultar_carta("Pulcinella", view);
                         break;
 
-                    case 5:
+                    case 4:
                         consultar_carta("O´recanto", view);
                         break;
 
-                    case 6:
+                    case 5:
                         consultar_carta("Trattoria", view);
                         break;
 
-                    case 7:
+                    case 6:
                         consultar_carta("El Asador", view);
                         break;
 
+                    case 7:
+                        consultar_carta("Tío_Paco", view);
+                        break;
+
                     case 8:
-                        consultar_carta("Cantina Tío Paco", view);
+                        consultar_carta("Gourmet", view);
                         break;
 
                     case 9:
-                        consultar_carta("El Rincón del Gourmet", view);
-                        break;
-
-                    case 10:
                         consultar_carta("Minotauro", view);
 
                         break;
@@ -171,19 +170,17 @@ public class MainActivity2 extends AppCompatActivity {
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] parametros = {parametro};
-        String[] campos = {Utilidades.CAMPO_NOMBRE_PLATO, Utilidades.CAMPO_DESCRIPCION_PLATO, Utilidades.CAMPO_PRECIO_PLATO, Utilidades.CAMPO_TIEMPO_PLATO, Utilidades.CAMPO_NOMBRE_RESTAURANTE,Utilidades.CAMPO_IMAGEN_PLATO,Utilidades.CAMPO_H};
+        String[] campos = {Utilidades.CAMPO_NOMBRE_PLATO, Utilidades.CAMPO_DESCRIPCION_PLATO, Utilidades.CAMPO_PRECIO_PLATO, Utilidades.CAMPO_TIEMPO_PLATO, Utilidades.CAMPO_NOMBRE_RESTAURANTE, Utilidades.CAMPO_IMAGEN_PLATO};
         platos_restaurante = new ArrayList<>();
-
         try {
 
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE + "=?", parametros, null, null, null);
 
-            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            while (cursor.moveToNext()) {
 
                 if (cursor.getString(4).equalsIgnoreCase(parametro)) {
 
                     Plato p = new Plato();
-
                     p.setNombre(cursor.getString(0));
                     p.setDescripcion(cursor.getString(1));
                     p.setPrecio(cursor.getDouble(2));
