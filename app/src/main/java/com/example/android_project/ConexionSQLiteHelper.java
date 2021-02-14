@@ -3,6 +3,7 @@ package com.example.android_project;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import androidx.annotation.Nullable;
 
 import utilidades.Utilidades;
@@ -18,7 +19,6 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
         db.execSQL(Utilidades.CREAR_TABLA_PLATO);
         db.execSQL(Utilidades.CREAR_TABLA_PEDIDOS);
-
     }
 
     @Override
@@ -28,6 +28,4 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS pedidos");
         onCreate(db);
     }
-
-
 }

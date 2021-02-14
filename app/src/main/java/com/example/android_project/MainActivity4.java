@@ -50,9 +50,7 @@ public class MainActivity4 extends AppCompatActivity {
             }
         });
 
-
         vaciar_campo(ed_nombre);
-
         vaciar_campo(ed_password);
 
         //Limpia el foco cuando haces click en el constraint Layout
@@ -63,44 +61,36 @@ public class MainActivity4 extends AppCompatActivity {
                 ed_password.clearFocus();
             }
         });
-
     }
 
     public void mostrarInfo() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {ed_nombre.getText().toString()};
-        String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD,Utilidades.CAMPO_DIRECCION
-        ,Utilidades.CAMPO_TELEFONO,Utilidades.CAMPO_EMAIL};
-
+        String[] parametros = {ed_nombre.getText().toString()};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_PASSWORD, Utilidades.CAMPO_DIRECCION
+                , Utilidades.CAMPO_TELEFONO, Utilidades.CAMPO_EMAIL};
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
-
+            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
             cursor.moveToFirst();
 
 
+            if (cursor.getString(0).equals(ed_nombre.getText().toString()) && cursor.getString(1).equals(ed_password.getText().toString())) {
 
-            if(cursor.getString(0).equals(ed_nombre.getText().toString()) && cursor.getString(1).equals(ed_password.getText().toString()))  {
-
-                tv_1.setText("Email: "+cursor.getString(2));
-                tv_2.setText("Telefono: "+cursor.getString(3));
-                tv_3.setText("Direccion: "+cursor.getString(4));
-
+                tv_1.setText("Email: " + cursor.getString(2));
+                tv_2.setText("Telefono: " + cursor.getString(3));
+                tv_3.setText("Direccion: " + cursor.getString(4));
 
             }
-
 
             cursor.close();
             db.close();
 
-
-        }catch(Exception e){
+        } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void vaciar_campo(EditText campo) {

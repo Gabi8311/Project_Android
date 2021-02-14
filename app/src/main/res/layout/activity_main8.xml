@@ -41,7 +41,7 @@
                 android:fontFamily="@font/montserrat"
                 android:text="Tus platos"
                 android:textAlignment="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/design_default_color_secondary_variant"
                 android:textSize="30dp"
                 android:textStyle="bold|italic" />
         </TableRow>
@@ -61,6 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:backgroundTint="@color/design_default_color_secondary_variant"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/btn_confirmar" />
         </TableRow>

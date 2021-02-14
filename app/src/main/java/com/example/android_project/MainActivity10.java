@@ -18,15 +18,13 @@ import utilidades.Utilidades;
 
 public class MainActivity10 extends AppCompatActivity {
 
-
     private String nombre;
     private ListView lv1;
-    private ArrayAdapter add;
     private ArrayList<Pedidos> pedido;
     private ArrayList<String> pedido_s;
     private TextView tv100;
-    private ArrayList<Integer>images_platos = new ArrayList<>();
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_pedidos",null,1);
+    private ArrayList<Integer> images_platos = new ArrayList<>();
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_pedidos", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,40 +37,34 @@ public class MainActivity10 extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-
-
             nombre = (String) extras.get("nombre");
-
         }
 
-        tv100.setText(nombre +" , sus pedidos son: ");
+        tv100.setText(nombre + " , sus pedidos son: ");
         consultar();
-
-
 
     }
 
     public void consultar() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {nombre};
-        String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_LISTA_PEDIDOS,Utilidades.CAMPO_TIEMPO_TOTAL};
+        String[] parametros = {nombre};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_LISTA_PEDIDOS, Utilidades.CAMPO_TIEMPO_TOTAL};
         pedido = new ArrayList<>();
         pedido_s = new ArrayList<>();
         int contador = 1;
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_PEDIDOS, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
+            Cursor cursor = db.query(Utilidades.TABLA_PEDIDOS, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
 
-          for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext())  {
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
                 System.out.println("dentro del cursor");
 
                 if (cursor.getString(0).equals(nombre)) {
 
                     Pedidos p = new Pedidos();
-
 
                     p.setPlato(cursor.getString(1));
                     p.setTiempo_total(cursor.getDouble(2));
@@ -83,32 +75,25 @@ public class MainActivity10 extends AppCompatActivity {
                     contador++;
 
                 }
-
             }
-
 
             cursor.close();
             db.close();
 
-            for(Pedidos ped : pedido){
+            for (Pedidos ped : pedido) {
 
                 pedido_s.add(ped.toString());
                 images_platos.add(R.drawable.silueta);
 
             }
 
-            MyAdapter add =  new MyAdapter(this, pedido_s,images_platos);
+            MyAdapter add = new MyAdapter(this, pedido_s, images_platos);
 
             lv1.setAdapter(add);
 
-
-        }catch(Exception e){
+        } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
 }

@@ -48,7 +48,6 @@ public class MainActivity5 extends AppCompatActivity {
 
         if (extras != null) {
 
-
             nombre = (String) extras.get("nombre");
 
         }
@@ -59,13 +58,13 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(ed_password.getText().toString().equals(ed_password2.getText().toString()) && ed_8.getText().toString().length() != 0 && ed_9.getText().toString().length() != 0
+                if (ed_password.getText().toString().equals(ed_password2.getText().toString()) && ed_8.getText().toString().length() != 0 && ed_9.getText().toString().length() != 0
                         && ed_10.getText().toString().length() != 0 && ed_password2.getText().toString().length() != 0
-                        ) {
+                ) {
 
                     modificarUsuario();
 
-                }else{
+                } else {
 
                     Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos y que su contraseña sea igual  ", Toast.LENGTH_SHORT).show();
 
@@ -74,10 +73,8 @@ public class MainActivity5 extends AppCompatActivity {
         });
 
         vaciar_campo(ed_nombre);
-
         vaciar_campo(ed_password);
         vaciar_campo(ed_password2);
-
 
         //Limpia el foco cuando haces click en el constraint Layout
         cl_5.setOnClickListener(new View.OnClickListener() {
@@ -89,27 +86,21 @@ public class MainActivity5 extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void mostrarInfo() {
 
-
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {nombre};
-        String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD,Utilidades.CAMPO_DIRECCION
-                ,Utilidades.CAMPO_TELEFONO,Utilidades.CAMPO_EMAIL};
-
+        String[] parametros = {nombre};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_PASSWORD, Utilidades.CAMPO_DIRECCION
+                , Utilidades.CAMPO_TELEFONO, Utilidades.CAMPO_EMAIL};
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
-
+            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
             cursor.moveToFirst();
 
-
-            if(cursor.getString(0).equals(nombre))  {
+            if (cursor.getString(0).equals(nombre)) {
 
                 ed_nombre.setText(cursor.getString(0));
 
@@ -117,39 +108,33 @@ public class MainActivity5 extends AppCompatActivity {
                 ed_9.setText(cursor.getString(3));
                 ed_10.setText(cursor.getString(4));
 
-
             }
-
 
             cursor.close();
             db.close();
 
-
-        }catch(Exception e){
+        } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), "Usuario no encontrado ", Toast.LENGTH_SHORT).show();
 
-
         }
-
-
     }
 
-    public void modificarUsuario(){
+    public void modificarUsuario() {
 
         SQLiteDatabase db = conn.getWritableDatabase();
-        String [] parametros = {ed_nombre.getText().toString()};
+        String[] parametros = {ed_nombre.getText().toString()};
         ContentValues values = new ContentValues();
 
-        values.put(Utilidades.CAMPO_PASSWORD,ed_password2.getText().toString());
-        values.put(Utilidades.CAMPO_DIRECCION,ed_8.getText().toString());
-        values.put(Utilidades.CAMPO_TELEFONO,ed_9.getText().toString());
-        values.put(Utilidades.CAMPO_EMAIL,ed_10.getText().toString());
+        values.put(Utilidades.CAMPO_PASSWORD, ed_password2.getText().toString());
+        values.put(Utilidades.CAMPO_DIRECCION, ed_8.getText().toString());
+        values.put(Utilidades.CAMPO_TELEFONO, ed_9.getText().toString());
+        values.put(Utilidades.CAMPO_EMAIL, ed_10.getText().toString());
 
-        db.update(Utilidades.TABLA_USUARIO,values,Utilidades.CAMPO_NOMBRE+"=?",parametros);
+        db.update(Utilidades.TABLA_USUARIO, values, Utilidades.CAMPO_NOMBRE + "=?", parametros);
 
         Toast.makeText(getApplicationContext(), "Base de datos actualizada ", Toast.LENGTH_SHORT).show();
-}
+    }
 
     public void vaciar_campo(EditText campo) {
         campo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -163,7 +148,5 @@ public class MainActivity5 extends AppCompatActivity {
                 }
             }
         });
-
     }
-
 }

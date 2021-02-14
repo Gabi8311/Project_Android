@@ -2,7 +2,6 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -10,23 +9,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-
-
 import Entidades.Plato;
 import Entidades.Rellenar_carta;
 import utilidades.Utilidades;
 
-import static Entidades.Rellenar_carta.rellenar;
+
 
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout cL_1;
@@ -179,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ArrayList>all_dishes;
         all_dishes = Rellenar_carta.rellenar();
 
-        int contador = 0;
+
 
                 for (ArrayList<Plato> carta : all_dishes) {
                     for (Plato plato : carta) {
@@ -191,16 +184,18 @@ public class MainActivity extends AppCompatActivity {
                         valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
                         valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE, plato.getNombre_restaurante());
 
+                valores.put(Utilidades.CAMPO_IMAGEN_PLATO, plato.getImagen());
+
                         db.insert(Utilidades.TABLA_PLATO, Utilidades.CAMPO_ID_PLATO, valores);
 
-                        contador++;
+
 
                 }
             }
 
         db.close();
 
-        System.out.println("Platos introducidos: " +contador );
+
 
     }
 

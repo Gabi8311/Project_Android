@@ -21,7 +21,7 @@ public class MainActivity9 extends AppCompatActivity {
     private TextView tv93;
     private String nombre;
     private Integer tiempo;
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_pedidos",null,1);
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_pedidos", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +32,17 @@ public class MainActivity9 extends AppCompatActivity {
         tv92 = findViewById(R.id.tv92);
         tv93 = findViewById(R.id.tv93);
 
-
-
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
 
-
             nombre = (String) extras.get("nombre");
             tiempo = (Integer) extras.get("tiempo");
-
         }
 
-
         tv91.setText(nombre);
-        tv92.setText("Su pedido llegará a su destino en: " );
-        tv93.setText(String.valueOf(tiempo));
+        tv92.setText("Su pedido llegará a su destino en: ");
+        tv93.setText(String.valueOf(tiempo) + " minutos");
     }
 
     @Override
@@ -55,10 +50,8 @@ public class MainActivity9 extends AppCompatActivity {
 
         super.onBackPressed();
         Intent returnActivity = new Intent(MainActivity9.this, MainActivity2.class);
-        returnActivity.putExtra("nombre",nombre);
+        returnActivity.putExtra("nombre", nombre);
         startActivity(returnActivity);
-
-
 
     }
 }

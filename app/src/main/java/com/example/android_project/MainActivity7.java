@@ -1,4 +1,4 @@
-package com.example.android_project;
+ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +24,7 @@ public class MainActivity7 extends AppCompatActivity{
     private ArrayList<String>platos_rest= new ArrayList<>() ;
     private ArrayList<Integer>images_platos = new ArrayList<>();
     private String nombre;
+    private Integer imagenInt;
 
     ConexionSQLiteHelper conn ;
 
@@ -49,7 +50,8 @@ public class MainActivity7 extends AppCompatActivity{
 
         for (Plato plato : platos_restaurante) {
             platos_rest.add(plato.toString());
-            images_platos.add(R.drawable.comidas);
+            imagenInt = getResources().getIdentifier(plato.getImagen(),"drawable",this.getPackageName());
+            images_platos.add(imagenInt);
         }
 
         MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
@@ -67,6 +69,7 @@ public class MainActivity7 extends AppCompatActivity{
                 lista_platos.add(platos_restaurante.get(position));
             }
         });
+
         ///Para llevarnos los platos pedidos al main8
         btn_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +82,4 @@ public class MainActivity7 extends AppCompatActivity{
             }
         });
     }
-
-
-
 }
