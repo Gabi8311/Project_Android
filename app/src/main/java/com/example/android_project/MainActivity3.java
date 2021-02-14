@@ -98,7 +98,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (!verificar) {
 
-            if (ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() != 0
+            if (ed_1.getText().toString().length() != 0 && ed_2.getText().toString().length() > 7
                     && ed_3.getText().toString().length() != 0 && ed_4.getText().toString().length() != 0
                     && ed_5.getText().toString().length() != 0) {
 
@@ -106,9 +106,13 @@ public class MainActivity3 extends AppCompatActivity {
 
                 Intent firstActivity = new Intent(MainActivity3.this, MainActivity.class);
                 startActivity(firstActivity);
-            } else {
+            } else if(ed_2.getText().toString().length() <= 7){
 
-                Toast.makeText(getApplicationContext(), "Debe rellenar los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "La contraseña debe ser mayor de 8 digitos", Toast.LENGTH_SHORT).show();
+
+            }else{
+
+                Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos", Toast.LENGTH_SHORT).show();
 
             }
         }
