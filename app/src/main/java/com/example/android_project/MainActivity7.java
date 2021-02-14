@@ -1,4 +1,4 @@
- package com.example.android_project;
+package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,25 +8,27 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
 import java.util.ArrayList;
+
 import Entidades.Plato;
 import utilidades.MyAdapter;
 
 import android.widget.Toast;
 
-public class MainActivity7 extends AppCompatActivity{
+public class MainActivity7 extends AppCompatActivity {
 
     private ListView listV_pedido;
     private Button btn_pedido;
     private ArrayList<Plato> lista_platos = new ArrayList<>();
     private ArrayList<Plato> platos_seleccionados;
-    private ArrayList<Plato>platos_restaurante;
-    private ArrayList<String>platos_rest= new ArrayList<>() ;
-    private ArrayList<Integer>images_platos = new ArrayList<>();
+    private ArrayList<Plato> platos_restaurante;
+    private ArrayList<String> platos_rest = new ArrayList<>();
+    private ArrayList<Integer> images_platos = new ArrayList<>();
     private String nombre;
     private Integer imagenInt;
 
-    ConexionSQLiteHelper conn ;
+    ConexionSQLiteHelper conn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +52,11 @@ public class MainActivity7 extends AppCompatActivity{
 
         for (Plato plato : platos_restaurante) {
             platos_rest.add(plato.toString());
-            imagenInt = getResources().getIdentifier(plato.getImagen(),"drawable",this.getPackageName());
+            imagenInt = getResources().getIdentifier(plato.getImagen(), "drawable", this.getPackageName());
             images_platos.add(imagenInt);
         }
 
-        MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
+        MyAdapter adaptador = new MyAdapter(this, platos_rest, images_platos);
 
         listV_pedido.setAdapter(adaptador);
 
@@ -62,9 +64,9 @@ public class MainActivity7 extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                String info = "Plato elegido:"+ platos_restaurante.get(position).getNombre()+"\n";
-               info += "Precio:" + platos_restaurante.get(position).getPrecio();
-               Toast.makeText(getApplicationContext(),info,Toast.LENGTH_LONG).show();
+                String info = "Plato elegido:" + platos_restaurante.get(position).getNombre() + "\n";
+                info += "Precio:" + platos_restaurante.get(position).getPrecio();
+                Toast.makeText(getApplicationContext(), info, Toast.LENGTH_LONG).show();
 
                 lista_platos.add(platos_restaurante.get(position));
             }

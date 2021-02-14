@@ -131,17 +131,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/design_default_color_secondary_variant"
                 android:fontFamily="@font/montserrat"
-                android:text="Visualizar" />
+                android:text="@string/btn_visualizar" />
         </TableRow>
     </TableLayout>
-    <![CDATA[
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity4">
 
-
-
-
-
-    ]]>
 </androidx.constraintlayout.widget.ConstraintLayout>
