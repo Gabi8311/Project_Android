@@ -171,7 +171,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] parametros = {parametro};
-        String[] campos = {Utilidades.CAMPO_NOMBRE_PLATO, Utilidades.CAMPO_DESCRIPCION_PLATO, Utilidades.CAMPO_PRECIO_PLATO, Utilidades.CAMPO_TIEMPO_PLATO, Utilidades.CAMPO_NOMBRE_RESTAURANTE};
+        String[] campos = {Utilidades.CAMPO_NOMBRE_PLATO, Utilidades.CAMPO_DESCRIPCION_PLATO, Utilidades.CAMPO_PRECIO_PLATO, Utilidades.CAMPO_TIEMPO_PLATO, Utilidades.CAMPO_NOMBRE_RESTAURANTE,Utilidades.CAMPO_IMAGEN_PLATO,Utilidades.CAMPO_H};
         platos_restaurante = new ArrayList<>();
 
         try {
@@ -189,6 +189,7 @@ public class MainActivity2 extends AppCompatActivity {
                     p.setPrecio(cursor.getDouble(2));
                     p.setTiempo(cursor.getInt(3));
                     p.setNombre_restaurante(cursor.getString(4));
+                    p.setImagen(cursor.getString(5));
 
                     platos_restaurante.add(p);
                 }

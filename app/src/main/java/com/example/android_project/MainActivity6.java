@@ -64,6 +64,7 @@ public class MainActivity6 extends AppCompatActivity {
             p.setDescripcion(cursor.getString(2));
             p.setPrecio(cursor.getDouble(3));
             p.setTiempo(cursor.getInt(4));
+            p.setImagen(cursor.getString(5));
 
             lista_platos.add(p);
         }

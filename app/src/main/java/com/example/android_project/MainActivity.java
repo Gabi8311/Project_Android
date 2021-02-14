@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
                     valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
                     valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE,plato.getNombre_restaurante());
+                    valores.put(Utilidades.CAMPO_IMAGEN_PLATO,plato.getImagen());
 
                     db.insert(Utilidades.TABLA_PLATO, null, valores);
                 }

@@ -1,4 +1,4 @@
-package com.example.android_project;
+ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +24,7 @@ public class MainActivity7 extends AppCompatActivity{
     private ArrayList<String>platos_rest= new ArrayList<>() ;
     private ArrayList<Integer>images_platos = new ArrayList<>();
     private String nombre;
+    private Integer imagenInt;
 
     ConexionSQLiteHelper conn ;
 
@@ -48,11 +49,13 @@ public class MainActivity7 extends AppCompatActivity{
         }
 
         for (Plato plato : platos_restaurante) {
+            System.out.println(plato);
             platos_rest.add(plato.toString());
-            images_platos.add(plato.getImagen());///////////////////////////////////////////////////////////
-            System.out.println(plato.getImagen()+"fdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+            imagenInt = getResources().getIdentifier(plato.getImagen(),"drawable",this.getPackageName());
+            images_platos.add(imagenInt);
         }
-
+//    int id = context.resources.getIdentifier(currentItem.image, "drawable", context.packageName)
+//       image.setImageResource(id)
         MyAdapter adaptador = new MyAdapter(this, platos_rest,images_platos);
 
         listV_pedido.setAdapter(adaptador);

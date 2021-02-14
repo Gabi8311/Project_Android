@@ -11,29 +11,21 @@ public class Plato implements Serializable {
     private double precio;
     private int tiempo;
     private String nombre_restaurante;
-    private int imagen;////////
+    private String imagen;
+    private String h;
 
-    public Plato () {
+    public Plato() {
 
     }
 
-    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo,String nombre_restaurante) {
+    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo, String nombre_restaurante, String imagen) {
         this.id_plato = id_plato;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.tiempo = tiempo;
         this.nombre_restaurante = nombre_restaurante;
-    }
-
-    public Plato(int id_plato, String nombre, String descripcion, double precio, int tiempo,String nombre_restaurante,int imagen) {
-        this.id_plato = id_plato;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.tiempo = tiempo;
-        this.nombre_restaurante = nombre_restaurante;
-        this.imagen = imagen;///////////////////////////
+        this.imagen = imagen;
     }
 
     public int getId_plato() {
@@ -80,23 +72,24 @@ public class Plato implements Serializable {
         return nombre_restaurante;
     }
 
-    public void setNombre_restaurante(String nombre_restaurante) {
-        this.nombre_restaurante = nombre_restaurante;
-    }
-///////////////////////////////////////////////
-    public int getImagen() {
+    public void setNombre_restaurante(String nombre_restaurante) { this.nombre_restaurante = nombre_restaurante; }
+
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-/////////////////////////////////////////////
+
+    public String getH() {
+        return h;
+    }
+
     @Override
     public String toString() {
 
 
-        return
-                this.nombre_restaurante +"\n\n"+ "+ " +this.nombre +"\n\n  Precio: " + this.precio +" $"+ "\n\n" +"+" +this.descripcion;
+        return " + this.nombre "+ "\n\n  Precio: " + this.precio + " $" + "\n\n" + "+" + this.descripcion ;
     }
 }
