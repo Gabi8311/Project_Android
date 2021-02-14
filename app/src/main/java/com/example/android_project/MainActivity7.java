@@ -25,6 +25,7 @@ public class MainActivity7 extends AppCompatActivity{
     private ArrayList<Integer>images_platos = new ArrayList<>();
     private String nombre;
     private Integer imagenInt;
+    private String nombre_rest;
 
     ConexionSQLiteHelper conn ;
 
@@ -46,6 +47,8 @@ public class MainActivity7 extends AppCompatActivity{
 
             platos_restaurante = (ArrayList<Plato>) extras.get("carta");
             nombre = (String) extras.get("nombre");
+            nombre_rest = (String) extras.get("nombre_rest");
+
         }
 
         for (Plato plato : platos_restaurante) {
@@ -78,6 +81,8 @@ public class MainActivity7 extends AppCompatActivity{
                 Intent eighthActivity = new Intent(MainActivity7.this, MainActivity8.class);
                 eighthActivity.putExtra("pedido", lista_platos);
                 eighthActivity.putExtra("nombre", nombre);
+                eighthActivity.putExtra("nombre_rest", nombre_rest);
+
                 startActivity(eighthActivity);
             }
         });

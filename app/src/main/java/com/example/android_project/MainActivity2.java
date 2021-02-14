@@ -32,9 +32,11 @@ public class MainActivity2 extends AppCompatActivity {
 
     private ListView listV_restaurantes;
     private String nombre;
+    private String nombre_rest;
     private ArrayList<Plato> platos_restaurante;
     private ArrayList<String> nombres_restaurantes;
     private ArrayList<Integer> imagenes_restaurantes;
+
 
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "platos", null, 1);
 
@@ -53,6 +55,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         if (extras != null) {
             nombre = (String) extras.get("nombre");
+
         }
 
         MyAdapter2 myAdapterRest = new MyAdapter2(this, nombres_restaurantes, imagenes_restaurantes);
@@ -148,6 +151,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                 Intent tenActivity = new Intent(MainActivity2.this, MainActivity10.class);
                 tenActivity.putExtra("nombre", nombre);
+
                 startActivity(tenActivity);
 
                 return true;
@@ -172,9 +176,12 @@ public class MainActivity2 extends AppCompatActivity {
         String[] parametros = {parametro};
         String[] campos = {Utilidades.CAMPO_NOMBRE_PLATO, Utilidades.CAMPO_DESCRIPCION_PLATO, Utilidades.CAMPO_PRECIO_PLATO, Utilidades.CAMPO_TIEMPO_PLATO, Utilidades.CAMPO_NOMBRE_RESTAURANTE, Utilidades.CAMPO_IMAGEN_PLATO};
         platos_restaurante = new ArrayList<>();
+
         try {
 
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE + "=?", parametros, null, null, null);
+
+
 
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
@@ -189,6 +196,8 @@ public class MainActivity2 extends AppCompatActivity {
                     p.setNombre_restaurante(cursor.getString(4));
                     p.setImagen(cursor.getString(5));
 
+
+
                     platos_restaurante.add(p);
                 }
             }
@@ -199,6 +208,8 @@ public class MainActivity2 extends AppCompatActivity {
             Intent seventhActivity = new Intent(MainActivity2.this, MainActivity7.class);
             seventhActivity.putExtra("carta", platos_restaurante);
             seventhActivity.putExtra("nombre", nombre);
+            seventhActivity.putExtra("nombre_restaurante", nombres_restaurantes);
+            seventhActivity.putExtra("nombre_rest", parametro);
             startActivity(seventhActivity);
 
         } catch (Exception e) {

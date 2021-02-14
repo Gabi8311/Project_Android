@@ -9,6 +9,7 @@ public class Pedidos implements Serializable {
     private String nombre;
     private String plato;
     private Double tiempo_total;
+    private String nombre_rest;
 
     public Pedidos() {
     }
@@ -46,6 +47,13 @@ public class Pedidos implements Serializable {
         this.plato = plato;
     }
 
+    public String getNombre_rest() {
+        return nombre_rest;
+    }
+
+    public void setNombre_rest(String nombre_rest) {
+        this.nombre_rest = nombre_rest;
+    }
 
     @Override
     public String toString() {
@@ -53,7 +61,8 @@ public class Pedidos implements Serializable {
         String platos = plato.replace("[", "").replace("]", "");
 
         return "Pedido : " + this.id_pedidos + "\n\n" +
-                "Restaurante: " + platos + "\n\n" +
+                "Restaurante: " + this.nombre_rest + "\n\n" +
+                "Plato: " + platos + "\n\n" +
                 "Tiempo total: " + this.tiempo_total + " min "
                 ;
     }
