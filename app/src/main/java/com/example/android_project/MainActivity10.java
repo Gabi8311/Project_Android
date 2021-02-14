@@ -49,7 +49,7 @@ public class MainActivity10 extends AppCompatActivity {
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] parametros = {nombre};
-        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_LISTA_PEDIDOS, Utilidades.CAMPO_TIEMPO_TOTAL};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_LISTA_PEDIDOS, Utilidades.CAMPO_TIEMPO_TOTAL,Utilidades.CAMPO_NOMBRE_REST};
         pedido = new ArrayList<>();
         pedido_s = new ArrayList<>();
         int contador = 1;
@@ -60,7 +60,7 @@ public class MainActivity10 extends AppCompatActivity {
 
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
-                System.out.println("dentro del cursor");
+
 
                 if (cursor.getString(0).equals(nombre)) {
 
@@ -69,6 +69,7 @@ public class MainActivity10 extends AppCompatActivity {
                     p.setPlato(cursor.getString(1));
                     p.setTiempo_total(cursor.getDouble(2));
                     p.setId_pedidos(contador);
+                    p.setNombre_rest(cursor.getString(3));
 
                     pedido.add(p);
 

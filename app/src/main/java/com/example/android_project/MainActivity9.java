@@ -21,6 +21,7 @@ public class MainActivity9 extends AppCompatActivity {
     private TextView tv93;
     private String nombre;
     private Integer tiempo;
+    private String nombre_restaurante;
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_pedidos", null, 1);
 
     @Override
@@ -38,6 +39,7 @@ public class MainActivity9 extends AppCompatActivity {
 
             nombre = (String) extras.get("nombre");
             tiempo = (Integer) extras.get("tiempo");
+
         }
 
         tv91.setText(nombre);
@@ -51,6 +53,7 @@ public class MainActivity9 extends AppCompatActivity {
         super.onBackPressed();
         Intent returnActivity = new Intent(MainActivity9.this, MainActivity2.class);
         returnActivity.putExtra("nombre", nombre);
+
         startActivity(returnActivity);
 
     }

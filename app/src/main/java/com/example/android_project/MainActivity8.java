@@ -38,7 +38,7 @@ public class MainActivity8 extends AppCompatActivity {
     private Integer tiempo_total = 0;
     private String nombre;
     private Integer imagesInt;
-
+    private String nombre_rest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,8 @@ public class MainActivity8 extends AppCompatActivity {
 
             platos_elegidos = (ArrayList<Plato>) extras.get("pedido");
             nombre = (String) extras.get("nombre");
+            nombre_rest = (String) extras.get("nombre_rest");
+
 
         }
 
@@ -118,6 +120,7 @@ public class MainActivity8 extends AppCompatActivity {
         values.put(Utilidades.CAMPO_NOMBRE, nombre);
         values.put(Utilidades.CAMPO_LISTA_PEDIDOS, tu_pedido.toString());
         values.put(Utilidades.CAMPO_TIEMPO_TOTAL, tiempo_total);
+        values.put(Utilidades.CAMPO_NOMBRE_REST,nombre_rest);
 
 
         Long idFinal = db.insert(Utilidades.TABLA_PEDIDOS, Utilidades.CAMPO_ID_PEDIDO, values);
@@ -129,6 +132,7 @@ public class MainActivity8 extends AppCompatActivity {
 
         nineActivity.putExtra("nombre", nombre);
         nineActivity.putExtra("tiempo", tiempo_total);
+
 
         startActivity(nineActivity);
     }
