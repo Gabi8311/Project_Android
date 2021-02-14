@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_enter;
     private TextView tV_registrate;
 
-    private boolean platos_introducidos = false;
+
+
 
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
-    ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +59,8 @@ public class MainActivity extends AppCompatActivity {
         cL_1.setBackgroundColor(Color.BLACK);
 
         //Comprueba si los datos no están incluidos,no vuelve a crear ni insertar los platos
-        if(!platos_introducidos){
 
-            insertar_platos();
-        }
+
 
         tV_registrate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +76,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+                verificar_carta();
                 consultar_usuario();
+
             }
         });
 
@@ -143,30 +145,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //Introducidos los platos la primera vez y luego para no introducirlos de nuevo verificamos que exista la tabla
+    public void verificar_carta() {
+
+        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+
+        SQLiteDatabase db = conn2.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM plato", null);
+
+        if(!cursor.moveToFirst()){
+
+            insertar_platos();
+
+        }
+
+
+
+
+
+        db.close();
+        cursor.close();
+
+    }
+
 
     public void insertar_platos() {
 
+        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+
         SQLiteDatabase db = conn2.getWritableDatabase();
 
-        ArrayList<ArrayList>all_dishes = new ArrayList<>();
+        ArrayList<ArrayList>all_dishes;
         all_dishes = Rellenar_carta.rellenar();
 
-            for (ArrayList<Plato> carta : all_dishes) {
-                for (Plato plato : carta) {
+        int contador = 0;
 
-                    ContentValues valores = new ContentValues();
-                    valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
-                    valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
-                    valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
-                    valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
-                    valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE,plato.getNombre_restaurante());
+                for (ArrayList<Plato> carta : all_dishes) {
+                    for (Plato plato : carta) {
 
-                    db.insert(Utilidades.TABLA_PLATO, null, valores);
+                        ContentValues valores = new ContentValues();
+                        valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
+                        valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
+                        valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
+                        valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
+                        valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE, plato.getNombre_restaurante());
+
+                        db.insert(Utilidades.TABLA_PLATO, Utilidades.CAMPO_ID_PLATO, valores);
+
+                        contador++;
+
                 }
             }
 
         db.close();
-        platos_introducidos = true;
+
+        System.out.println("Platos introducidos: " +contador );
+
     }
+
 
 }

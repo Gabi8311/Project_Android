@@ -14,6 +14,7 @@
         android:id="@+id/listV_pedido2"
         android:layout_width="340dp"
         android:layout_height="520dp"
+        android:layout_marginTop="10dp"
         android:background="@color/color_grey_light"
         android:fadingEdge="none" />
 

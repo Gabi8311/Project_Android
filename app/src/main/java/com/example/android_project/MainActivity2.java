@@ -179,7 +179,7 @@ public class MainActivity2 extends AppCompatActivity {
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE + "=?", parametros, null, null, null);
 
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-
+                System.out.println(parametro);
                 if (cursor.getString(4).equalsIgnoreCase(parametro)) {
 
                     Plato p = new Plato();
@@ -191,6 +191,7 @@ public class MainActivity2 extends AppCompatActivity {
                     p.setNombre_restaurante(cursor.getString(4));
 
                     platos_restaurante.add(p);
+
                 }
             }
 
