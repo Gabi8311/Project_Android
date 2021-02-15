@@ -67,8 +67,8 @@ public class MainActivity7 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                String info = "Plato elegido:" + platos_restaurante.get(position).getNombre() + "\n";
-                info += "Precio:" + platos_restaurante.get(position).getPrecio();
+                String info = getText(R.string.plato_elegido) + platos_restaurante.get(position).getNombre() + "\n";
+                info += getText(R.string.precio)+""+ platos_restaurante.get(position).getPrecio();
                 Toast.makeText(getApplicationContext(), info, Toast.LENGTH_LONG).show();
 
                 lista_platos.add(platos_restaurante.get(position));

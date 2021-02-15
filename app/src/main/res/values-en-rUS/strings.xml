@@ -35,5 +35,12 @@
     <string name="btn_modificar">Update</string>
     <string name="btn_visualizar">Visualize</string>
     <string name="tus_platos">Your dishes</string>
-
+    <string name="superior_8">You must fill in all the fields and that your password is equal to and greater than 8 digits</string>
+    <string name="bienvenido">Welcome</string>
+    <string name="no_encontrado">User not found</string>
+    <string name="BB_DD_actualizada">Updated database</string>
+    <string name="plato_elegido">Chosen dish: </string>
+    <string name="precio">Price: </string>
+    <string name="total">Total: </string>
+    <string name="platos_no_introducidos">No dishes entered</string>
 </resources>

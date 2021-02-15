@@ -66,7 +66,7 @@ public class MainActivity5 extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos y que su contraseña sea igual y superior a 8 digitos  ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.superior_8), Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -115,7 +115,7 @@ public class MainActivity5 extends AppCompatActivity {
 
         } catch (Exception e) {
 
-            Toast.makeText(getApplicationContext(), "Usuario no encontrado ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.no_encontrado), Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -133,7 +133,7 @@ public class MainActivity5 extends AppCompatActivity {
 
         db.update(Utilidades.TABLA_USUARIO, values, Utilidades.CAMPO_NOMBRE + "=?", parametros);
 
-        Toast.makeText(getApplicationContext(), "Base de datos actualizada ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getText(R.string.BB_DD_actualizada), Toast.LENGTH_SHORT).show();
     }
 
     public void vaciar_campo(EditText campo) {

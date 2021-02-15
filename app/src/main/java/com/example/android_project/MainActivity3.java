@@ -118,7 +118,6 @@ public class MainActivity3 extends AppCompatActivity {
         }
     }
 
-
     public void registrarUsuario() {
 
         ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);

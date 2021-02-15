@@ -5,10 +5,10 @@
     <string name="usuario">Usuario</string>
     <string name="password">Password</string>
     <string name="btn_enter">Entrar</string>
-    <string name="usuario_incorrecto">** Usuario Incorrecto **</string>
-    <string name="password_incorrecto">** Contraseña Incorrecta **</string>
+    <string name="usuario_incorrecto">Usuario Incorrecto</string>
+    <string name="password_incorrecto">Contraseña Incorrecta</string>
     <string name="btn_mostrar">Mostrar</string>
-    <string name="campo_obligatorio">** Campo obligatorio **</string>
+    <string name="campo_obligatorio">Campo obligatorio</string>
     <string name="btn_salir">Salir</string>
     <string name="btn_volver">Volver</string>
     <string name="elige_restaurante">Elige tu Restaurante VIP</string>
@@ -34,7 +34,13 @@
     <string name="btn_modificar">Modificar</string>
     <string name="btn_visualizar">Visualizar</string>
     <string name="tus_platos">Tus platos</string>
-
-
+    <string name="superior_8">Debe rellenar todos los campos y que su contraseña sea igual y superior a 8 dígitos</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="no_encontrado">Usuario no encontrado</string>
+    <string name="BB_DD_actualizada">Base de datos actualizada</string>
+    <string name="plato_elegido">Plato elegido: </string>
+    <string name="precio">Precio: </string>
+    <string name="total">Total: </string>
+    <string name="platos_no_introducidos">No hay platos introducidos</string>
 
 </resources>

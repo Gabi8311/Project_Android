@@ -75,7 +75,7 @@ public class MainActivity8 extends AppCompatActivity {
         total_string = Double.toString(precio_total);
 
 
-        tV_8.setText("Total:  " + total_string + "€");
+        tV_8.setText(getText(R.string.total) + total_string + "€");
 
         MyAdapter myAdapter = new MyAdapter(this, tu_pedido, images);
         listV_pedido2.setAdapter(myAdapter);

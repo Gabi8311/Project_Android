@@ -32,7 +32,6 @@ public class MainActivity2 extends AppCompatActivity {
 
     private ListView listV_restaurantes;
     private String nombre;
-    private String nombre_rest;
     private ArrayList<Plato> platos_restaurante;
     private ArrayList<String> nombres_restaurantes;
     private ArrayList<Integer> imagenes_restaurantes;
@@ -181,8 +180,6 @@ public class MainActivity2 extends AppCompatActivity {
 
             Cursor cursor = db.query(Utilidades.TABLA_PLATO, campos, Utilidades.CAMPO_NOMBRE_RESTAURANTE + "=?", parametros, null, null, null);
 
-
-
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
                 if (cursor.getString(4).equalsIgnoreCase(parametro)) {
@@ -195,8 +192,6 @@ public class MainActivity2 extends AppCompatActivity {
                     p.setTiempo(cursor.getInt(3));
                     p.setNombre_restaurante(cursor.getString(4));
                     p.setImagen(cursor.getString(5));
-
-
 
                     platos_restaurante.add(p);
                 }

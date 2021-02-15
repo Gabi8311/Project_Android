@@ -33,11 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_enter;
     private TextView tV_registrate;
 
-
-
-
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         cL_1.setBackgroundColor(Color.BLACK);
 
-        //Comprueba si los datos no están incluidos,no vuelve a crear ni insertar los platos
-
-
-
+        //Comprueba si los datos no están incluidos, no vuelve a crear ni insertar los platos
         tV_registrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-
 
                 verificar_carta();
                 consultar_usuario();
@@ -108,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString()))  {
 
-                    Toast.makeText(getApplicationContext(), "Bienvenido ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.bienvenido) , Toast.LENGTH_SHORT).show();
 
                     Intent secondActivity = new Intent(MainActivity.this, MainActivity2.class);
                     secondActivity.putExtra("nombre",cursor.getString(0));
@@ -116,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }else{
 
-                    Toast.makeText(getApplicationContext(), "Password incorrecto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.password_incorrecto), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -125,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
         }catch(Exception e){
 
-            Toast.makeText(getApplicationContext(), "Usuario incorrecto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.usuario_incorrecto), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -141,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //Introducidos los platos la primera vez y luego para no introducirlos de nuevo verificamos que exista la tabla
     public void verificar_carta() {
 
@@ -156,15 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
-
-
-
         db.close();
         cursor.close();
-
     }
-
 
     public void insertar_platos() {
 
@@ -174,8 +161,6 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<ArrayList>all_dishes;
         all_dishes = Rellenar_carta.rellenar();
-
-
 
                 for (ArrayList<Plato> carta : all_dishes) {
                     for (Plato plato : carta) {
@@ -191,16 +176,9 @@ public class MainActivity extends AppCompatActivity {
 
                         db.insert(Utilidades.TABLA_PLATO, Utilidades.CAMPO_ID_PLATO, valores);
 
-
-
                 }
             }
 
         db.close();
-
-
-
     }
-
-
 }
