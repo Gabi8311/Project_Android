@@ -87,7 +87,7 @@ public class MainActivity3 extends AppCompatActivity {
 
             if (cursor.getString(0).equals(ed_1.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(), R.string.usu_regis, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.usu_regis), Toast.LENGTH_SHORT).show();
 
                 verificar = true;
             }
@@ -106,13 +106,13 @@ public class MainActivity3 extends AppCompatActivity {
 
                 Intent firstActivity = new Intent(MainActivity3.this, MainActivity.class);
                 startActivity(firstActivity);
-            } else if(ed_2.getText().toString().length() <= 7){
+            } else if (ed_2.getText().toString().length() <= 7) {
 
-                Toast.makeText(getApplicationContext(), R.string.digitos, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.digitos), Toast.LENGTH_SHORT).show();
 
-            }else{
+            } else {
 
-                Toast.makeText(getApplicationContext(), R.string.campo_obligatorio, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.campo_obligatorio), Toast.LENGTH_SHORT).show();
 
             }
         }

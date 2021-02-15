@@ -42,12 +42,12 @@
     <string name="precio">Precio: </string>
     <string name="total">Total: </string>
     <string name="platos_no_introducidos">No hay platos introducidos</string>
-    <string name="digitos">La contraseña debe ser mayor de 8 digitos</string>
+    <string name="digitos">La contraseña debe ser mayor de 8 dígitos</string>
     <string name="usu_regis">Nombre de usuario ya registrado</string>
     <string name="pedidos">El usuario aun no ha hecho pedidos</string>
     <string name="usu_borra">Usuario borrado</string>
-    <string name="suspe">Sus pedidos son</string>
-    <string name="pedlle">Su pedido llegará en</string>
+    <string name="suspe">Sus pedidos son: </string>
+    <string name="pedlle">Su pedido llegará en :</string>
     <string name="eliminar_plato_pedido">Quieres eliminar este plato de tu pedido?</string>
     <string name="elegir_accion">Elegir acción</string>
 

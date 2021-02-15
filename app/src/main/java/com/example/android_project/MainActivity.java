@@ -23,7 +23,6 @@ import Entidades.Rellenar_carta;
 import utilidades.Utilidades;
 
 
-
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout cL_1;
     private TextView tV_user;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_enter;
     private TextView tV_registrate;
 
-    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_usuarios",null,1);
+    ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,25 +86,25 @@ public class MainActivity extends AppCompatActivity {
     public void consultar_usuario() {
 
         SQLiteDatabase db = conn.getReadableDatabase();
-        String [] parametros = {eT_user.getText().toString()};
-        String [] campos = {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_PASSWORD};
+        String[] parametros = {eT_user.getText().toString()};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_PASSWORD};
 
         try {
 
-            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE+"=?", parametros, null, null, null);
+            Cursor cursor = db.query(Utilidades.TABLA_USUARIO, campos, Utilidades.CAMPO_NOMBRE + "=?", parametros, null, null, null);
             cursor.moveToFirst();
 
-            if(cursor.getString(0).equals(eT_user.getText().toString())) {
+            if (cursor.getString(0).equals(eT_user.getText().toString())) {
 
-                if(cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString()))  {
+                if (cursor.getString(0).equals(eT_user.getText().toString()) && cursor.getString(1).equals(eT_password.getText().toString())) {
 
-                    Toast.makeText(getApplicationContext(), getText(R.string.bienvenido) , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.bienvenido), Toast.LENGTH_SHORT).show();
 
                     Intent secondActivity = new Intent(MainActivity.this, MainActivity2.class);
-                    secondActivity.putExtra("nombre",cursor.getString(0));
+                    secondActivity.putExtra("nombre", cursor.getString(0));
                     startActivity(secondActivity);
 
-                }else{
+                } else {
 
                     Toast.makeText(getApplicationContext(), getText(R.string.password_incorrecto), Toast.LENGTH_SHORT).show();
                 }
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
             db.close();
 
-        }catch(Exception e){
+        } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), getText(R.string.usuario_incorrecto), Toast.LENGTH_SHORT).show();
         }
@@ -136,13 +135,13 @@ public class MainActivity extends AppCompatActivity {
     //Introducidos los platos la primera vez y luego para no introducirlos de nuevo verificamos que exista la tabla
     public void verificar_carta() {
 
-        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this, "platos", null, 1);
 
         SQLiteDatabase db = conn2.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM plato", null);
 
-        if(!cursor.moveToFirst()){
+        if (!cursor.moveToFirst()) {
 
             insertar_platos();
 
@@ -154,30 +153,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void insertar_platos() {
 
-        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this,"platos",null,1);
+        ConexionSQLiteHelper conn2 = new ConexionSQLiteHelper(this, "platos", null, 1);
 
         SQLiteDatabase db = conn2.getWritableDatabase();
 
-        ArrayList<ArrayList>all_dishes;
+        ArrayList<ArrayList> all_dishes;
         all_dishes = Rellenar_carta.rellenar();
 
-                for (ArrayList<Plato> carta : all_dishes) {
-                    for (Plato plato : carta) {
+        for (ArrayList<Plato> carta : all_dishes) {
+            for (Plato plato : carta) {
 
-                        ContentValues valores = new ContentValues();
-                        valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
-                        valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
-                        valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
-                        valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
-                        valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE, plato.getNombre_restaurante());
+                ContentValues valores = new ContentValues();
+                valores.put(Utilidades.CAMPO_NOMBRE_PLATO, plato.getNombre());
+                valores.put(Utilidades.CAMPO_DESCRIPCION_PLATO, plato.getDescripcion());
+                valores.put(Utilidades.CAMPO_PRECIO_PLATO, plato.getPrecio());
+                valores.put(Utilidades.CAMPO_TIEMPO_PLATO, plato.getTiempo());
+                valores.put(Utilidades.CAMPO_NOMBRE_RESTAURANTE, plato.getNombre_restaurante());
 
                 valores.put(Utilidades.CAMPO_IMAGEN_PLATO, plato.getImagen());
 
-                        db.insert(Utilidades.TABLA_PLATO, Utilidades.CAMPO_ID_PLATO, valores);
-
-                }
+                db.insert(Utilidades.TABLA_PLATO, Utilidades.CAMPO_ID_PLATO, valores);
             }
-
+        }
         db.close();
     }
 }

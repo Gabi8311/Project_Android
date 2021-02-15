@@ -120,7 +120,7 @@ public class MainActivity8 extends AppCompatActivity {
         values.put(Utilidades.CAMPO_NOMBRE, nombre);
         values.put(Utilidades.CAMPO_LISTA_PEDIDOS, tu_pedido.toString());
         values.put(Utilidades.CAMPO_TIEMPO_TOTAL, tiempo_total);
-        values.put(Utilidades.CAMPO_NOMBRE_REST,nombre_rest);
+        values.put(Utilidades.CAMPO_NOMBRE_REST, nombre_rest);
 
 
         Long idFinal = db.insert(Utilidades.TABLA_PEDIDOS, Utilidades.CAMPO_ID_PEDIDO, values);

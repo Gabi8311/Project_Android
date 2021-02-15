@@ -40,7 +40,7 @@ public class MainActivity10 extends AppCompatActivity {
             nombre = (String) extras.get("nombre");
         }
 
-        tv100.setText(nombre + " , "+ R.string.suspe +": ");
+        tv100.setText(nombre + " , " + getText(R.string.suspe));
         consultar();
 
     }
@@ -49,7 +49,7 @@ public class MainActivity10 extends AppCompatActivity {
 
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] parametros = {nombre};
-        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_LISTA_PEDIDOS, Utilidades.CAMPO_TIEMPO_TOTAL,Utilidades.CAMPO_NOMBRE_REST};
+        String[] campos = {Utilidades.CAMPO_NOMBRE, Utilidades.CAMPO_LISTA_PEDIDOS, Utilidades.CAMPO_TIEMPO_TOTAL, Utilidades.CAMPO_NOMBRE_REST};
         pedido = new ArrayList<>();
         pedido_s = new ArrayList<>();
         int contador = 1;
@@ -70,9 +70,7 @@ public class MainActivity10 extends AppCompatActivity {
                     p.setNombre_rest(cursor.getString(3));
 
                     pedido.add(p);
-
                     contador++;
-
                 }
             }
 
@@ -80,19 +78,16 @@ public class MainActivity10 extends AppCompatActivity {
             db.close();
 
             for (Pedidos ped : pedido) {
-
                 pedido_s.add(ped.toString());
                 images_platos.add(R.drawable.silueta);
-
             }
 
             MyAdapter add = new MyAdapter(this, pedido_s, images_platos);
-
             lv1.setAdapter(add);
 
         } catch (Exception e) {
 
-            Toast.makeText(getApplicationContext(), R.string.pedidos, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.pedidos), Toast.LENGTH_SHORT).show();
         }
     }
 }
