@@ -89,7 +89,7 @@ public class MainActivity4 extends AppCompatActivity {
 
         } catch (Exception e) {
 
-            Toast.makeText(getApplicationContext(),getText(R.string.superior_8), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),getText(R.string.usuario_incorrecto), Toast.LENGTH_SHORT).show();
         }
     }
 

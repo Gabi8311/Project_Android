@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         vaciar_campo(eT_user);
-
         vaciar_campo(eT_password);
 
         //Limpia el foco cuando haces click en el constraint Layout

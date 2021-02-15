@@ -21,7 +21,7 @@ public class MainActivity9 extends AppCompatActivity {
     private TextView tv93;
     private String nombre;
     private Integer tiempo;
-    private String nombre_restaurante;
+
     ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_pedidos", null, 1);
 
     @Override
@@ -43,8 +43,8 @@ public class MainActivity9 extends AppCompatActivity {
         }
 
         tv91.setText(nombre);
-        tv92.setText("Su pedido llegará a su destino en: ");
-        tv93.setText(String.valueOf(tiempo) + " minutos");
+        tv92.setText(R.string.pedlle);
+        tv93.setText(String.valueOf(tiempo) + " min");
     }
 
     @Override

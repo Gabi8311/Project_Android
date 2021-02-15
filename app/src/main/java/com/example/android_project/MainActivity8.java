@@ -96,7 +96,7 @@ public class MainActivity8 extends AppCompatActivity {
 
                 if (platos_elegidos.size() <= 0) {
 
-                    Toast.makeText(getApplicationContext(), "No hay platos introducidos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.platos_no_introducidos), Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -141,11 +141,11 @@ public class MainActivity8 extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
 // Configura el titulo.
-        alertDialogBuilder.setTitle("Elegir acción");
+        alertDialogBuilder.setTitle(getText(R.string.elegir_accion));
 
 // Configura el mensaje.
         alertDialogBuilder
-                .setMessage("Quieres eliminar este plato?")
+                .setMessage(getText(R.string.eliminar_plato_pedido))
                 .setCancelable(false)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -159,7 +159,7 @@ public class MainActivity8 extends AppCompatActivity {
                             precio_total += plato.getPrecio();
                         }
                         total_string = Double.toString(precio_total);
-                        tv_8.setText("Total:  " + total_string + "€");
+                        tv_8.setText(getText(R.string.total) + total_string + "€");
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

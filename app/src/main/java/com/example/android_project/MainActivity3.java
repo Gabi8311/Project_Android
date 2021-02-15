@@ -87,7 +87,7 @@ public class MainActivity3 extends AppCompatActivity {
 
             if (cursor.getString(0).equals(ed_1.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(), "Nombre de usuario ya registrado ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.usu_regis, Toast.LENGTH_SHORT).show();
 
                 verificar = true;
             }
@@ -108,11 +108,11 @@ public class MainActivity3 extends AppCompatActivity {
                 startActivity(firstActivity);
             } else if(ed_2.getText().toString().length() <= 7){
 
-                Toast.makeText(getApplicationContext(), "La contraseña debe ser mayor de 8 digitos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.digitos, Toast.LENGTH_SHORT).show();
 
             }else{
 
-                Toast.makeText(getApplicationContext(), "Debe rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.campo_obligatorio, Toast.LENGTH_SHORT).show();
 
             }
         }

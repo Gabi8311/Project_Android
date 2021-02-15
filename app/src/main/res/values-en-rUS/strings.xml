@@ -43,4 +43,14 @@
     <string name="precio">Price: </string>
     <string name="total">Total: </string>
     <string name="platos_no_introducidos">No dishes entered</string>
+    <string name="digitos">Password must to have 8 charcaters</string>
+    <string name="usu_regis">User already registered</string>
+    <string name="pedidos">User has not placed orders yet</string>
+    <string name="usu_borra">Deleted user</string>
+    <string name="suspe">Your order are</string>
+    <string name="pedlle">Your order arrives in</string>
+    <string name="eliminar_plato_pedido">Do you want to remove this dish from your order?</string>
+    <string name="elegir_accion">Choose action</string>
+
+
 </resources>

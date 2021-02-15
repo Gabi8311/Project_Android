@@ -40,7 +40,7 @@ public class MainActivity10 extends AppCompatActivity {
             nombre = (String) extras.get("nombre");
         }
 
-        tv100.setText(nombre + " , sus pedidos son: ");
+        tv100.setText(nombre + " , "+ R.string.suspe +": ");
         consultar();
 
     }
@@ -92,7 +92,7 @@ public class MainActivity10 extends AppCompatActivity {
 
         } catch (Exception e) {
 
-            Toast.makeText(getApplicationContext(), "Usuario incorrecto ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.pedidos, Toast.LENGTH_SHORT).show();
         }
     }
 }
