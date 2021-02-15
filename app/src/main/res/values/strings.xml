@@ -34,6 +34,14 @@
     <string name="btn_modificar">Modificar</string>
     <string name="btn_visualizar">Visualizar</string>
     <string name="tus_platos">Tus platos</string>
+    <string name="digitos">La contraseña debe ser mayor de 8 digitos</string>
+    <string name="usu_regis">Nombre de usuario ya registrado</string>
+    <string name="pedidos">El usuario aun no ha hecho pedidos</string>
+    <string name="usu_borra">Usuario borrado</string>
+    <string name="noencontrado">Usuario no encontrado</string>
+    <string name="suspe">Sus pedidos son</string>
+    <string name="pedlle">Su pedido llegará en</string>
+
 
 
 

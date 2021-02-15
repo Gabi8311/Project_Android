@@ -35,5 +35,12 @@
     <string name="btn_modificar">Update</string>
     <string name="btn_visualizar">Visualize</string>
     <string name="tus_platos">Your dishes</string>
+    <string name="digitos">Password must to have 8 charcaters</string>
+    <string name="usu_regis">User already registered</string>
+    <string name="pedidos">User has not placed orders yet</string>
+    <string name="usu_borra">Deleted user</string>
+    <string name="noencontrado">User dont found</string>
+    <string name="suspe">Your order are</string>
+    <string name="pedlle">Your order arrives in</string>
 
 </resources>

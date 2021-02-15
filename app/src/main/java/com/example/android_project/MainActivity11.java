@@ -63,7 +63,7 @@ public class MainActivity11 extends AppCompatActivity {
 
         db1.delete(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_NOMBRE + "=?", parametros);
 
-        Toast.makeText(getApplicationContext(), "Usuario borrado ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.usu_borra, Toast.LENGTH_SHORT).show();
 
         Intent returnActivity = new Intent(MainActivity11.this, MainActivity.class);
 
@@ -94,7 +94,7 @@ public class MainActivity11 extends AppCompatActivity {
 
         } catch (Exception e) {
 
-            Toast.makeText(getApplicationContext(), "Usuario no encontrado ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.noencontrado, Toast.LENGTH_SHORT).show();
         }
     }
 
